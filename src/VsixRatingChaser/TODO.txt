@@ -1,0 +1,7 @@
+﻿xml annotations
+convert rejections to exceptions
+
+readme
+unit tests / code coverage %
+licence file - free only for non-commercial use
+(subject to gitter - almost certinaly 100% impossible) do not run except for free extensions
