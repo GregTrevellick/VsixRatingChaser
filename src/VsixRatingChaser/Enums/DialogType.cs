@@ -1,4 +1,4 @@
-﻿namespace VsixRatingChaser
+﻿namespace VsixRatingChaser.Enums
 {
     public enum DialogType
     {

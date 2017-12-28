@@ -1,4 +1,6 @@
-﻿namespace VsixRatingChaser
+﻿using VsixRatingChaser.Enums;
+
+namespace VsixRatingChaser
 {
     public class AggressionLimit
     {

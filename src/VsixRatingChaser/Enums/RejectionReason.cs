@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace VsixRatingChaser
+namespace VsixRatingChaser.Enums
 {
     public enum RejectionReason
     {

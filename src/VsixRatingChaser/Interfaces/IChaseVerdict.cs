@@ -1,3 +1,5 @@
+using VsixRatingChaser.Enums;
+
 namespace VsixRatingChaser
 {
     public interface IChaseVerdict
