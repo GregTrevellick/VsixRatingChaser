@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Media.Imaging;
 using VsixRatingChaser.Enums;
+using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser
 {

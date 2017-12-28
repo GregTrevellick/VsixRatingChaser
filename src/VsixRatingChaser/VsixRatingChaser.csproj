@@ -116,7 +116,6 @@
     <Compile Include="Enums\RejectionReason.cs" />
     <Compile Include="Enums\AggressionLevel.cs" />
     <Compile Include="Enums\DialogType.cs" />
-    <Compile Include="Interfaces\zIRatingInstructionsLimits.cs" />
     <Compile Include="Interfaces\IRatingInstructions.cs" />
     <Compile Include="Interfaces\IChaseVerdict.cs" />
     <Compile Include="Interfaces\IRatingInstructionsUi.cs" />

@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser
 {

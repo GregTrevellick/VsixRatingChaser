@@ -1,7 +1,7 @@
 using System;
 using Microsoft.VisualStudio.Shell;
 
-namespace VsixRatingChaser
+namespace VsixRatingChaser.Interfaces
 {
     public interface IHiddenChaserOptions : IProfileManager
     {

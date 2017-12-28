@@ -1,4 +1,5 @@
 ﻿using VsixRatingChaser.Enums;
+using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser
 {

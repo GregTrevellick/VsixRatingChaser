@@ -1,6 +1,6 @@
 using VsixRatingChaser.Enums;
 
-namespace VsixRatingChaser
+namespace VsixRatingChaser.Interfaces
 {
     public interface IRatingInstructions : IRatingInstructionsUi ////////////////////////////,IRatingInstructionsLimits
     {
