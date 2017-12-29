@@ -36,26 +36,26 @@ namespace VsixRatingChaser
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.AuthorName))
             {
                 outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.VsixAuthorCannotBeBlank;
+                outcome.RejectionReason = RejectionReason.AuthorNameCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.ExtensionName))
             {
                 outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.VsixNameCannotBeBlank;
+                outcome.RejectionReason = RejectionReason.ExtensionNameCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.MarketPlaceUrl))
             {
                 outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.RatingRequestUrlUndefined;
+                outcome.RejectionReason = RejectionReason.MarketplaceUrlUndefined;
             }
 
             if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
                 .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
             {
                 outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.RatingRequestUrlStartIsWrong;
+                outcome.RejectionReason = RejectionReason.MarketplaceUrlStartIsWrong;
             }
 
             return outcome;
