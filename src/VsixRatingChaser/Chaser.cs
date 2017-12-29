@@ -21,8 +21,8 @@ namespace VsixRatingChaser
                 if (shouldShowDialog)
                 {
                     ShowDialog(ratingDetailsDto, extensionDetailsDto);
-                    outcome.RatingDialogShown = true;
-                    outcome.RatingHyperLinkClicked = _ratingHyperLinkClicked;
+                    outcome.ReviewRequestDialogShown = true;
+                    outcome.MarketplaceHyperLinkClicked = _ratingHyperLinkClicked;
                 }
             }
 

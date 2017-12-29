@@ -6,17 +6,25 @@ namespace VsixRatingChaser.Dtos
     {
         public ChaseOutcomeDto()
         {
-            RatingDialogShown = false;
-            RatingHyperLinkClicked = null;
+            ReviewRequestDialogShown = false;
+            MarketplaceHyperLinkClicked = null;
             Rejected = false;
             RejectionReason = RejectionReason.NotRejected;
             RejectionReasonDescription = RejectionReason.ToString();
         }
 
+        /// <summary>
+        /// if the review request pop-up was shown - false except for month 3/6/9
+        /// </summary>
+        public bool ReviewRequestDialogShown { get; set; }
+
+        /// <summary>
+        /// whether or not user click the marketplace url supplied
+        /// </summary>
+        public bool? MarketplaceHyperLinkClicked { get; set; }
+
         public bool Rejected { get; set; }
-        public bool RatingDialogShown { get; set; }
-        public bool? RatingHyperLinkClicked { get; set; }
-        public RejectionReason RejectionReason { get; set; }
+        internal RejectionReason RejectionReason { get; set; }
         public string RejectionReasonDescription { get; set; }
     }
 }
