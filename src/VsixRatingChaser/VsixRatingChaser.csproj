@@ -122,10 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChaseVerdict.cs" />
-    <Compile Include="AggressionLimit.cs" />
-    <Compile Include="Enums\RatingRequestGapUnit.cs" />
     <Compile Include="Enums\RejectionReason.cs" />
-    <Compile Include="Enums\DialogType.cs" />
     <Compile Include="Interfaces\IChaseVerdict.cs" />
     <Compile Include="Interfaces\IRatingInstructions.cs" />
     <Compile Include="RatingDecider.cs" />

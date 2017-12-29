@@ -1,20 +1,19 @@
 ﻿using System;
-using VsixRatingChaser.Enums;
 using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser
 {
     internal class RatingDecider
     {
-        internal bool ShouldShowDialog(IHiddenChaserOptions hiddenChaserOptions, AggressionLimit aggressionLimit)
+        internal bool ShouldShowDialog(IHiddenChaserOptions hiddenChaserOptions)
         {
             var shouldShowDialog = false;
 
-            var exceededRatingRequestLimit = ExceededRatingRequestLimit(hiddenChaserOptions.RatingRequestCount, aggressionLimit.RatingRequestLimit);
+            var exceededRatingRequestLimit = ExceededRatingRequestLimit(hiddenChaserOptions.RatingRequestCount, 9999);//gregt store 9999 centrally
 
             if (!exceededRatingRequestLimit)
             {
-                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(hiddenChaserOptions.LastRatingRequest, aggressionLimit.RatingRequestGap, aggressionLimit.RatingRequestGapUnit);
+                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(hiddenChaserOptions.LastRatingRequest, 2);//gregt store this hard coded value somewhere central
 
                 if (exceededChaseTimeGapLimit) 
                 {
@@ -30,35 +29,11 @@ namespace VsixRatingChaser
             return ratingRequestCount > ratingRequestLimit;
         }
 
-        private bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap, RatingRequestGapUnit ratingRequestGapUnit)
+        private bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap)
         {
-            DateTime acceptableDate;
             var now = DateTime.Now;
 
-            switch (ratingRequestGapUnit)
-            {
-                case RatingRequestGapUnit.Seconds:
-                    acceptableDate = now.AddSeconds(-1 * ratingRequestGap);
-                    break;
-                case RatingRequestGapUnit.Minutes:
-                    acceptableDate = now.AddMinutes(-1 * ratingRequestGap);
-                    break;
-                case RatingRequestGapUnit.Hours:
-                    acceptableDate = now.AddHours(-1 * ratingRequestGap);
-                    break;
-                case RatingRequestGapUnit.Days:
-                    acceptableDate = now.AddDays(-1 * ratingRequestGap);
-                    break;
-                case RatingRequestGapUnit.Months:
-                    acceptableDate = now.AddMonths(-1 * ratingRequestGap);
-                    break;
-                case RatingRequestGapUnit.Years:
-                    acceptableDate = now.AddYears(-1 * ratingRequestGap);
-                    break;
-                default:
-                    acceptableDate = now;
-                    break;
-            }
+            var acceptableDate = now.AddSeconds(-1 * ratingRequestGap);//gregt change to 3 months
             
             return lastRatingRequest < acceptableDate;
         }

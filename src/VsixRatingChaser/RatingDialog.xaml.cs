@@ -12,12 +12,10 @@ namespace VsixRatingChaser
     {
         internal bool RatingHyperLinkClicked;
         private IRatingInstructions _ratingInstructions;
-        private AggressionLimit _aggressionLimit;
 
-        internal RatingDialog(IRatingInstructions ratingInstructions, BitmapImage bitmapImage, AggressionLimit aggressionLimit)
+        internal RatingDialog(IRatingInstructions ratingInstructions, BitmapImage bitmapImage)
         {
             InitializeComponent();
-            _aggressionLimit = aggressionLimit;
             _ratingInstructions = ratingInstructions;
             InitializeReviewRequest(bitmapImage);
         }
@@ -109,8 +107,7 @@ namespace VsixRatingChaser
             }
             else
             {
-                AppTextExplain.Text =
-                    $"this is message gregt of {_aggressionLimit.RatingRequestLimit}. The next message will be {_aggressionLimit.RatingRequestGap} {_aggressionLimit.RatingRequestGapUnit} from now.";///////////////////////////////////////////// You have used the package {_ratingInstructions.PackageLoadedLimit} times.";
+                AppTextExplain.Text = "this is message gregt of 9999. The next message will be gregt seconds from now.";
                 AppTextExplain.Visibility = Visibility.Visible;
             }
         }
