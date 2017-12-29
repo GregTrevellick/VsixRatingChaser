@@ -9,11 +9,11 @@ namespace VsixRatingChaser
         {
             var shouldShowDialog = false;
 
-            var exceededRatingRequestLimit = ExceededRatingRequestLimit(hiddenChaserOptions.RatingRequestCount, 9999);//gregt store 9999 centrally
+            var exceededRatingRequestLimit = ExceededRatingRequestLimit(hiddenChaserOptions.RatingRequestCount, ChaseSettings.RatingRequestLimit);
 
             if (!exceededRatingRequestLimit)
             {
-                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(hiddenChaserOptions.LastRatingRequest, 2);//gregt store this hard coded value somewhere central
+                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(hiddenChaserOptions.LastRatingRequest, ChaseSettings.RatingRequestGap);
 
                 if (exceededChaseTimeGapLimit) 
                 {

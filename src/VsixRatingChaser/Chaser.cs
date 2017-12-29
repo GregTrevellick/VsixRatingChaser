@@ -6,13 +6,13 @@ namespace VsixRatingChaser
 {
     public class Chaser : IChaser
     {
-        private bool ratingHyperLinkClicked;
+        private bool _ratingHyperLinkClicked;
 
-        public IChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto)
+        public ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto)
         {
-            var chaseVerdict = Validate(extensionDetailsDto);
+            var outcome = Validate(extensionDetailsDto);
 
-            if (!chaseVerdict.Rejected)
+            if (!outcome.Rejected)
             {
                 var ratingDecider = new RatingDecider();
                 var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
@@ -20,51 +20,51 @@ namespace VsixRatingChaser
                 if (shouldShowDialog)
                 {
                     ShowDialog(ratingDetailsDto, extensionDetailsDto);
-                    chaseVerdict.RatingDialogShown = true;
-                    chaseVerdict.RatingHyperLinkClicked = ratingHyperLinkClicked;
+                    outcome.RatingDialogShown = true;
+                    outcome.RatingHyperLinkClicked = _ratingHyperLinkClicked;
                 }
             }
 
-            return chaseVerdict;
+            return outcome;
         }
 
-        private ChaseOutcome Validate(IExtensionDetailsDto extensionDetailsDto)
+        private ChaseOutcomeDto Validate(IExtensionDetailsDto extensionDetailsDto)
         {
-            var chaseVerdict = new ChaseOutcome();
+            var outcome = new ChaseOutcomeDto();
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.AuthorName))
             {
-                chaseVerdict.Rejected = true;
-                chaseVerdict.RejectionReason = RejectionReason.VsixAuthorCannotBeBlank;
+                outcome.Rejected = true;
+                outcome.RejectionReason = RejectionReason.VsixAuthorCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.ExtensionName))
             {
-                chaseVerdict.Rejected = true;
-                chaseVerdict.RejectionReason = RejectionReason.VsixNameCannotBeBlank;
+                outcome.Rejected = true;
+                outcome.RejectionReason = RejectionReason.VsixNameCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.MarketPlaceUrl))
             {
-                chaseVerdict.Rejected = true;
-                chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlUndefined;
+                outcome.Rejected = true;
+                outcome.RejectionReason = RejectionReason.RatingRequestUrlUndefined;
             }
 
             if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
                 .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
             {
-                chaseVerdict.Rejected = true;
-                chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlStartIsWrong;
+                outcome.Rejected = true;
+                outcome.RejectionReason = RejectionReason.RatingRequestUrlStartIsWrong;
             }
 
-            return chaseVerdict;
+            return outcome;
         }
 
         private void ShowDialog(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto)
         {
             var ratingDialog = new RatingDialog(extensionDetailsDto);
             ratingDialog.Show();
-            ratingHyperLinkClicked = ratingDialog.RatingHyperLinkClicked;
+            _ratingHyperLinkClicked = ratingDialog.RatingHyperLinkClicked;
             PersistRatingDetails(ratingDetailsDto);
         }
 

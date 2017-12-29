@@ -5,6 +5,6 @@ namespace VsixRatingChaser.Interfaces
         /// <summary>
         /// gregt
         /// </summary>
-        IChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto);
+        ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto);
     }
 }

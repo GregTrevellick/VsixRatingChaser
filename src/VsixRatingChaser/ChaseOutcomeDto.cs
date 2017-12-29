@@ -1,11 +1,10 @@
 ﻿using VsixRatingChaser.Enums;
-using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser
 {
-    public class ChaseOutcome : IChaseOutcomeDto
+    public class ChaseOutcomeDto 
     {
-        public ChaseOutcome()
+        public ChaseOutcomeDto()
         {
             RatingDialogShown = false;
             RatingHyperLinkClicked = null;
