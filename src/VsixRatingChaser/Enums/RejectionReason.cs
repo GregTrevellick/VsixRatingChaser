@@ -6,21 +6,21 @@ namespace VsixRatingChaser.Enums
     {
         [Description("gregt0")]
         NotRejected = 0,
-        [Description("gregt1")]
-        RatingInstructionsTooAggressiveForLow,
-        [Description("gregt2")]
-        RatingInstructionsTooAggressiveForMedium,
-        [Description("gregt3")]
-        HighlyAggressiveChasingNotSupported,
+        //[Description("gregt1")]
+        //RatingInstructionsTooAggressiveForLow,
+        //[Description("gregt2")]
+        //RatingInstructionsTooAggressiveForMedium,
+        //[Description("gregt3")]
+        //HighlyAggressiveChasingNotSupported,
         DialogTypeUndefined,
-        AggressionLevelUndefined,
+        //AggressionLevelUndefined,
         RatingRequestUrlUndefined,
         RatingRequestUrlStartIsWrong,
         RatingRequestUrlAnchorTagIsWrong,
-        RatingRequestGapUnitUndefined,
-        RatingRequestGapIsZero,
-        RatingRequestCostCategoryIsZero,
-        RatingRequestCostCategoryIsNotFree,
+        //RatingRequestGapUnitUndefined,
+        //RatingRequestGapIsZero,
+        //RatingRequestCostCategoryIsZero,
+        //RatingRequestCostCategoryIsNotFree,
         VsixNameCannotBeBlank,
         VsixAuthorCannotBeBlank,
         ImageTooBig,

@@ -123,14 +123,11 @@
   <ItemGroup>
     <Compile Include="ChaseVerdict.cs" />
     <Compile Include="AggressionLimit.cs" />
-    <Compile Include="Enums\CostCategory.cs" />
     <Compile Include="Enums\RatingRequestGapUnit.cs" />
     <Compile Include="Enums\RejectionReason.cs" />
-    <Compile Include="Enums\AggressionLevel.cs" />
     <Compile Include="Enums\DialogType.cs" />
-    <Compile Include="Interfaces\IRatingInstructions.cs" />
     <Compile Include="Interfaces\IChaseVerdict.cs" />
-    <Compile Include="Interfaces\IRatingInstructionsUi.cs" />
+    <Compile Include="Interfaces\IRatingInstructions.cs" />
     <Compile Include="RatingDecider.cs" />
     <Compile Include="Interfaces\IHiddenChaserOptions.cs" />
     <Compile Include="Interfaces\IChaser.cs" />

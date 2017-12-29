@@ -18,7 +18,7 @@ namespace VsixRatingChaser
             if (!chaseVerdict.Rejected)
             {
                 var ratingDecider = new RatingDecider();
-                var aggressionLimit = GetAggressionLimit(ratingInstructions.AggressionLevel);
+                var aggressionLimit = GetAggressionLimit();//ratingInstructions.AggressionLevel);
                 var shouldShowDialog = ratingDecider.ShouldShowDialog(hiddenRatingChaserOptions, aggressionLimit);///////////////////////////////////, ratingInstructions, aggressionLimit);
 
                 if (shouldShowDialog)
@@ -47,55 +47,46 @@ namespace VsixRatingChaser
             return chaseVerdict;
         }
 
-        private AggressionLimit GetAggressionLimit(AggressionLevel aggressionLevel)
-        {
-            var aggressionLimit = new AggressionLimit();
+        //private AggressionLimit GetAggressionLimit(AggressionLevel aggressionLevel)
+        //{
+        //    var aggressionLimit = new AggressionLimit();
+        //    switch (aggressionLevel)
+        //    {
+        //        case AggressionLevel.Low:
+        //            aggressionLimit.RatingRequestGap = 3;
+        //            aggressionLimit.RatingRequestGapUnit = RatingRequestGapUnit.Months;
+        //            aggressionLimit.RatingRequestLimit = 3;
+        //            break;
+        //        case AggressionLevel.Medium:
+        //            aggressionLimit.RatingRequestGap = 30;
+        //            aggressionLimit.RatingRequestGapUnit = RatingRequestGapUnit.Days;
+        //            aggressionLimit.RatingRequestLimit = 6;
+        //            break;
+        //        case AggressionLevel.High:
+        //            aggressionLimit.RatingRequestGap = 2;
+        //            aggressionLimit.RatingRequestGapUnit = RatingRequestGapUnit.Seconds;
+        //            aggressionLimit.RatingRequestLimit = 9999;
+        //            break;
+        //        default:
+        //            throw new ArgumentOutOfRangeException(nameof(aggressionLevel), aggressionLevel, null);
+        //    }
+        //    return aggressionLimit;
+        //}
 
-            switch (aggressionLevel)
-            {
-                case AggressionLevel.Low:
-                    aggressionLimit.RatingRequestGap = 3;
-                    aggressionLimit.RatingRequestGapUnit = RatingRequestGapUnit.Months;
-                    aggressionLimit.RatingRequestLimit = 3;
-                    break;
-                case AggressionLevel.Medium:
-                    aggressionLimit.RatingRequestGap = 30;
-                    aggressionLimit.RatingRequestGapUnit = RatingRequestGapUnit.Days;
-                    aggressionLimit.RatingRequestLimit = 6;
-                    break;
-                case AggressionLevel.High:
-                    aggressionLimit.RatingRequestGap = 2;
-                    aggressionLimit.RatingRequestGapUnit = RatingRequestGapUnit.Seconds;
-                    aggressionLimit.RatingRequestLimit = 9999;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(aggressionLevel), aggressionLevel, null);
-            }
-
-            return aggressionLimit;
+        private AggressionLimit GetAggressionLimit()
+       {
+           var aggressionLimit = new AggressionLimit
+           {
+               RatingRequestGap = 2,
+               RatingRequestGapUnit = RatingRequestGapUnit.Seconds,
+               RatingRequestLimit = 9999
+           };
+           return aggressionLimit;
         }
 
         private ChaseVerdict ValidateRatingInstructions(IRatingInstructions ratingInstructions)
         {
             var chaseVerdict = new ChaseVerdict();
-
-            if (ratingInstructions.CostCategory == 0)
-            {
-                chaseVerdict.Rejected = true;
-                chaseVerdict.RejectionReason = RejectionReason.RatingRequestCostCategoryIsZero;
-            }
-
-            if (ratingInstructions.CostCategory != CostCategory.Free)
-            {
-                chaseVerdict.Rejected = true;
-                chaseVerdict.RejectionReason = RejectionReason.RatingRequestCostCategoryIsNotFree;
-            }     
-
-            //if (ratingInstructions.RatingRequestGap == 0)
-            //{
-            //    chaseVerdict.Rejected = true;
-            //    chaseVerdict.RejectionReason = RejectionReason.RatingRequestGapIsZero;
-            //}
 
             //if (string.IsNullOrWhiteSpace(ratingInstructions.RatingRequestUrl))
             //{
@@ -123,52 +114,11 @@ namespace VsixRatingChaser
             //    chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlStartIsWrong;
             //}
 
-            //if (ratingInstructions.RatingRequestGapUnit == 0)
-            //{
-            //    chaseVerdict.Rejected = true;
-            //    chaseVerdict.RejectionReason = RejectionReason.RatingRequestGapUnitUndefined;
-            //}
-
             if (ratingInstructions.DialogType == 0)
             {
                 chaseVerdict.Rejected = true;
                 chaseVerdict.RejectionReason = RejectionReason.DialogTypeUndefined;
             }
-
-            if (ratingInstructions.AggressionLevel == 0)
-            {
-                chaseVerdict.Rejected = true;
-                chaseVerdict.RejectionReason = RejectionReason.AggressionLevelUndefined;
-            }
-
-            //if (ratingInstructions.AggressionLevel == AggressionLevel.Low)
-            //{
-            //    if (ratingInstructions.RatingRequestGap < 90 ||
-            //        ratingInstructions.PackageLoadedLimit < 10000 ||
-            //        ratingInstructions.RatingRequestLimit > 3)
-            //    {
-            //        chaseVerdict.Rejected = true;
-            //        chaseVerdict.RejectionReason = RejectionReason.RatingInstructionsTooAggressiveForLow;
-            //    }
-            //}
-
-            //if (ratingInstructions.AggressionLevel == AggressionLevel.Medium)
-            //{
-            //    if (ratingInstructions.RatingRequestGap < 30 ||
-            //        ratingInstructions.PackageLoadedLimit < 1000 ||
-            //        ratingInstructions.RatingRequestLimit > 9)
-            //    {
-            //        chaseVerdict.Rejected = true;
-            //        chaseVerdict.RejectionReason = RejectionReason.RatingInstructionsTooAggressiveForMedium;
-            //    }
-            //}
-
-            //gregt reimplement this later
-            //if (ratingInstructions.AggressionLevel == AggressionLevel.High)
-            //{
-            //    chaseVerdict.Rejected = true;
-            //    chaseVerdict.RejectionReason = RejectionReason.HighlyAggressiveChasingNotSupported;
-            //}
 
             if (string.IsNullOrWhiteSpace(ratingInstructions.VsixAuthor))
             {

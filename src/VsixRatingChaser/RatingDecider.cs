@@ -6,7 +6,7 @@ namespace VsixRatingChaser
 {
     internal class RatingDecider
     {
-        internal bool ShouldShowDialog(IHiddenChaserOptions hiddenChaserOptions, AggressionLimit aggressionLimit)///////////////////////////////////IRatingInstructionsLimits ratingInstructionsLimits
+        internal bool ShouldShowDialog(IHiddenChaserOptions hiddenChaserOptions, AggressionLimit aggressionLimit)
         {
             var shouldShowDialog = false;
 
@@ -14,10 +14,9 @@ namespace VsixRatingChaser
 
             if (!exceededRatingRequestLimit)
             {
-                ////////////////////////////////////////////var exceededPackageLoadLimit = ExceededPackageLoadLimit(hiddenChaserOptions.PackageLoadedCount, ratingInstructionsLimits.PackageLoadedLimit);
                 var exceededChaseTimeGapLimit = ExceededRatingRequestGap(hiddenChaserOptions.LastRatingRequest, aggressionLimit.RatingRequestGap, aggressionLimit.RatingRequestGapUnit);
 
-                if (exceededChaseTimeGapLimit) /////////////////////////////////////////////////////|| exceededPackageLoadLimit)
+                if (exceededChaseTimeGapLimit) 
                 {
                     shouldShowDialog = true;
                 }
@@ -63,10 +62,5 @@ namespace VsixRatingChaser
             
             return lastRatingRequest < acceptableDate;
         }
-
-        //////////////////////////private bool ExceededPackageLoadLimit(int packageLoadedCount, int packageLoadedLimit)
-        //////////////////////////{
-        //////////////////////////    return packageLoadedCount > packageLoadedLimit;
-        //////////////////////////}
     }
 }

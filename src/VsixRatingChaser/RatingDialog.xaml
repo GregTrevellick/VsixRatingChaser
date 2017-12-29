@@ -4,34 +4,23 @@
              xmlns:platformUi="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"                         
              xmlns:SamplingMode="clr-namespace:System;assembly=mscorlib"
              xmlns:shell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0" >
-    <Grid ShowGridLines="True">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+    <StackPanel Orientation="Vertical" Name="StackPanelQuiz">
+        <StackPanel Orientation="Horizontal">
+            <Image Margin="10,10,10,10" VerticalAlignment="Top" HorizontalAlignment="Left" Name="AppImage" Stretch="None"/>
+            <TextBlock Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Center" Name="AppTextChaseStatement" TextWrapping="Wrap"/>
+            <TextBlock Visibility="Collapsed" Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Right" Name="AppTextThankYou" FontWeight="Bold" Text="thank you" />
+            <TextBlock Visibility="Collapsed" Margin="5,5,5,5" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Left" Name="AppTextExplain" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Close" Margin="10,10,10,10" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Right" Click="AppBtnClose_OnClick" Name="AppBtnClose"/>
+            <TextBlock Margin="10,10,10,10" >
+                <Hyperlink Name="AppHyperLink" RequestNavigate="AppHyperlink_RequestNavigate" >
+                    <TextBlock Name="AppTextClickForVsmp" />
+                </Hyperlink>
+            </TextBlock>
+            <Button Content="Help" Margin="10,10,10,10" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Left" Click="AppBtnHelp_OnClick" Name="AppBtnHelp"/>
+        </StackPanel>
+    </StackPanel>
         
-        <Image Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" VerticalAlignment="Top" HorizontalAlignment="Left" Name="AppImage" Stretch="None"/>
-        <TextBlock Grid.Row="0" Grid.Column="1" Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Center" Name="AppTextChaseStatement" TextWrapping="Wrap"/>
-
-        <TextBlock Grid.Row="1" Grid.Column="1" Margin="10,10,10,10" >
-            <Hyperlink Name="AppHyperLink" RequestNavigate="AppHyperlink_RequestNavigate" >
-                <TextBlock Name="AppTextClickForVsmp" />
-            </Hyperlink>
-        </TextBlock>
-
-        <TextBlock Grid.Row="2" Grid.Column="1" Visibility="Collapsed" Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Right" Name="AppTextThankYou" FontWeight="Bold" Text="thank you" />
-
-        <Button Grid.Row="3" Grid.Column="1" Content="Help" Margin="10,10,10,10" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Left" Click="AppBtnHelp_OnClick" Name="AppBtnHelp"/>
-        <Button Grid.Row="3" Grid.Column="1" Content="Close" Margin="10,10,10,10" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Right" Click="AppBtnClose_OnClick" Name="AppBtnClose"/>
-        <TextBlock Grid.Row="4" Grid.Column="1" Visibility="Collapsed" Margin="5,5,5,5" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Left" Name="AppTextExplain" />
-        
-    </Grid>
 </platformUi:DialogWindow>
