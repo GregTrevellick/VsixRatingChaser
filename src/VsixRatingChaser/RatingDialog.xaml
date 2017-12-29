@@ -7,13 +7,13 @@
 
     <StackPanel Orientation="Vertical" Name="StackPanelQuiz">
         <StackPanel Orientation="Vertical">
-            <TextBlock Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Center" Name="AppTextChaseStatement" TextWrapping="Wrap"/>
+            <TextBlock Margin="10,10,10,10" Name="AppTextChaseStatement" TextWrapping="Wrap"/>
             <TextBlock Margin="10,10,10,10" >
                 <Hyperlink Name="AppHyperLink" RequestNavigate="AppHyperlink_RequestNavigate" >
                     <TextBlock Name="AppTextClickForVsmp" />
                 </Hyperlink>
             </TextBlock>
-            <TextBlock Visibility="Collapsed" Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Right" Name="AppTextLinkClickedThankYou" FontWeight="Bold" Text="THANK YOU!" />
+            <TextBlock Visibility="Collapsed" Margin="10,10,10,10" Name="AppTextLinkClickedThankYou" FontWeight="Bold" Text="THANK YOU!" />
         </StackPanel>
     </StackPanel>
         
