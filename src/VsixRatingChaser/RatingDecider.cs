@@ -5,7 +5,7 @@ namespace VsixRatingChaser
 {
     internal class RatingDecider
     {
-        internal bool ShouldShowDialog(IHiddenChaserOptions hiddenChaserOptions)
+        internal bool ShouldShowDialog(IRatingDetailsDto hiddenChaserOptions)
         {
             var shouldShowDialog = false;
 

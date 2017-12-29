@@ -10,9 +10,9 @@ namespace VsixRatingChaser
     public partial class RatingDialog : DialogWindow
     {
         internal bool RatingHyperLinkClicked;
-        private IRatingInstructions _ratingInstructions;
+        private readonly IExtensionDetailsDto _ratingInstructions;
 
-        internal RatingDialog(IRatingInstructions ratingInstructions)
+        internal RatingDialog(IExtensionDetailsDto ratingInstructions)
         {
             InitializeComponent();
             _ratingInstructions = ratingInstructions;
@@ -25,13 +25,13 @@ namespace VsixRatingChaser
             HasMinimizeButton = true;
             ResizeMode = ResizeMode.CanResize;
             SizeToContent = SizeToContent.WidthAndHeight;
-            Title = _ratingInstructions.VsixName;
+            Title = _ratingInstructions.ExtensionName;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             AppTextChaseStatement.Text =
-                $"I, {_ratingInstructions.VsixAuthor}, created the {_ratingInstructions.VsixName} extension entirely unpaid in my personal free time. It is 100% free and I receive no income, direct or indirect, from it.{Environment.NewLine}All that I ask is that you rate this extension on the Visual Studio Market Place by clicking on the link below, it will be greatly appreciated.{Environment.NewLine}Thank you, {_ratingInstructions.VsixAuthor}";
+                $"I, {_ratingInstructions.AuthorName}, created the {_ratingInstructions.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive no income, direct or indirect, from it.{Environment.NewLine}All that I ask is that you rate this extension on the Visual Studio Market Place by clicking on the link below, it will be greatly appreciated.{Environment.NewLine}Thank you, {_ratingInstructions.AuthorName}";
 
-            AppTextClickForVsmp.Text = "click here to place review";
+            AppTextClickForVsmp.Text = "Click here to place review";
 
             var ratingRequestUrl = GetRatingRequestUrl();
             AppHyperLink.NavigateUri = new Uri(ratingRequestUrl);
@@ -39,10 +39,13 @@ namespace VsixRatingChaser
 
         private string GetRatingRequestUrl()
         {
-            var ratingRequestUrl =
-                $@"https://marketplace.visualstudio.com/items?itemName={_ratingInstructions.VsixAuthor}.{
-                        _ratingInstructions.VsixName
-                    }#review-details";
+            var ratingRequestUrl = _ratingInstructions.MarketPlaceUrl;
+
+            if (!ratingRequestUrl.ToLower().EndsWith("#review-details".ToLower()))
+            {
+                ratingRequestUrl += "#review-details";
+            }
+
             return ratingRequestUrl;
         }
 

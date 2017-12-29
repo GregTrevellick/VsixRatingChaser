@@ -121,12 +121,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChaseVerdict.cs" />
+    <Compile Include="ChaseOutcome.cs" />
     <Compile Include="Enums\RejectionReason.cs" />
-    <Compile Include="Interfaces\IChaseVerdict.cs" />
-    <Compile Include="Interfaces\IRatingInstructions.cs" />
+    <Compile Include="Interfaces\IChaseOutcomeDto.cs" />
+    <Compile Include="Interfaces\IExtensionDetailsDto.cs" />
     <Compile Include="RatingDecider.cs" />
-    <Compile Include="Interfaces\IHiddenChaserOptions.cs" />
+    <Compile Include="Interfaces\IRatingDetailsDto.cs" />
     <Compile Include="Interfaces\IChaser.cs" />
     <Compile Include="Chaser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,9 +147,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DummyVsixExtensionPreview_16x16.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

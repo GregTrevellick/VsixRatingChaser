@@ -9,6 +9,8 @@ namespace VsixRatingChaser.Enums
         VsixNameCannotBeBlank,
         VsixAuthorCannotBeBlank,
         ImageTooBig,
-        ImageTooSmall
+        ImageTooSmall,
+        RatingRequestUrlUndefined,
+        RatingRequestUrlStartIsWrong,
     }
 }

@@ -2,7 +2,7 @@ using VsixRatingChaser.Enums;
 
 namespace VsixRatingChaser.Interfaces
 {
-    public interface IChaseVerdict
+    public interface IChaseOutcomeDto
     {
         bool Rejected{ get; set; }
         bool RatingDialogShown { get; set; }

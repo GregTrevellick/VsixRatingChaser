@@ -3,9 +3,9 @@ using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser
 {
-    public class ChaseVerdict : IChaseVerdict
+    public class ChaseOutcome : IChaseOutcomeDto
     {
-        public ChaseVerdict()
+        public ChaseOutcome()
         {
             RatingDialogShown = false;
             RatingHyperLinkClicked = null;

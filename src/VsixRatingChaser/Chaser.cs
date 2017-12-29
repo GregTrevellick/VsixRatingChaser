@@ -8,18 +8,18 @@ namespace VsixRatingChaser
     {
         private bool ratingHyperLinkClicked;
 
-        public IChaseVerdict Chase(IHiddenChaserOptions hiddenChaserOptions, IRatingInstructions ratingInstructions)
+        public IChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto)
         {
-            var chaseVerdict = ValidateRatingInstructions(ratingInstructions);
+            var chaseVerdict = Validate(extensionDetailsDto);
 
             if (!chaseVerdict.Rejected)
             {
                 var ratingDecider = new RatingDecider();
-                var shouldShowDialog = ratingDecider.ShouldShowDialog(hiddenChaserOptions);
+                var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
 
                 if (shouldShowDialog)
                 {
-                    ShowDialog(hiddenChaserOptions, ratingInstructions);
+                    ShowDialog(ratingDetailsDto, extensionDetailsDto);
                     chaseVerdict.RatingDialogShown = true;
                     chaseVerdict.RatingHyperLinkClicked = ratingHyperLinkClicked;
                 }
@@ -28,76 +28,52 @@ namespace VsixRatingChaser
             return chaseVerdict;
         }
 
-        private ChaseVerdict ValidateRatingInstructions(IRatingInstructions ratingInstructions)
+        private ChaseOutcome Validate(IExtensionDetailsDto extensionDetailsDto)
         {
-            var chaseVerdict = new ChaseVerdict();
+            var chaseVerdict = new ChaseOutcome();
 
-            if (string.IsNullOrWhiteSpace(ratingInstructions.VsixAuthor))
+            if (string.IsNullOrWhiteSpace(extensionDetailsDto.AuthorName))
             {
                 chaseVerdict.Rejected = true;
                 chaseVerdict.RejectionReason = RejectionReason.VsixAuthorCannotBeBlank;
             }
 
-            if (string.IsNullOrWhiteSpace(ratingInstructions.VsixName))
+            if (string.IsNullOrWhiteSpace(extensionDetailsDto.ExtensionName))
             {
                 chaseVerdict.Rejected = true;
                 chaseVerdict.RejectionReason = RejectionReason.VsixNameCannotBeBlank;
             }
 
+            if (string.IsNullOrWhiteSpace(extensionDetailsDto.MarketPlaceUrl))
+            {
+                chaseVerdict.Rejected = true;
+                chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlUndefined;
+            }
+
+            if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
+                .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
+            {
+                chaseVerdict.Rejected = true;
+                chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlStartIsWrong;
+            }
+
             return chaseVerdict;
         }
 
-        private void ShowDialog(IHiddenChaserOptions hiddenChaserOptions, IRatingInstructions ratingInstructions)
+        private void ShowDialog(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto)
         {
-            var ratingDialog = new RatingDialog(ratingInstructions);
-
+            var ratingDialog = new RatingDialog(extensionDetailsDto);
             ratingDialog.Show();
-
             ratingHyperLinkClicked = ratingDialog.RatingHyperLinkClicked;
-
-            PersistHiddenChaserOptions(hiddenChaserOptions);
+            PersistRatingDetails(ratingDetailsDto);
         }
 
-        private void PersistHiddenChaserOptions(IHiddenChaserOptions hiddenChaserOptions)
+        private void PersistRatingDetails(IRatingDetailsDto ratingDetailsDto)
         {
-            hiddenChaserOptions.LastRatingRequest = DateTime.Now;
-            hiddenChaserOptions.RatingRequestCount++;
-            hiddenChaserOptions.SaveSettingsToStorage();
+            ratingDetailsDto.LastRatingRequest = DateTime.Now;
+            ratingDetailsDto.RatingRequestCount++;
+            ratingDetailsDto.SaveSettingsToStorage();
         }
     }
 }
 
-
-
-
-
-
-
-
-
-
-//if (string.IsNullOrWhiteSpace(ratingInstructions.RatingRequestUrl))
-//{
-//    chaseVerdict.Rejected = true;
-//    chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlUndefined;
-//}
-
-//if (!ratingInstructions.RatingRequestUrl.ToLower()
-//    .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
-//{
-//    chaseVerdict.Rejected = true;
-//    chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlStartIsWrong;
-//}
-
-//if (!ratingInstructions.RatingRequestUrl.ToLower().EndsWith("#review-details".ToLower()))
-//{
-//    chaseVerdict.Rejected = true;
-//    chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlAnchorTagIsWrong;
-//}
-
-//if (!ratingInstructions.RatingRequestUrl.ToLower()
-//    .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
-//{
-//    chaseVerdict.Rejected = true;
-//    chaseVerdict.RejectionReason = RejectionReason.RatingRequestUrlStartIsWrong;
-//}
