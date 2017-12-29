@@ -10,12 +10,12 @@ namespace VsixRatingChaser
     public partial class RatingDialog : DialogWindow
     {
         internal bool RatingHyperLinkClicked;
-        private readonly IExtensionDetailsDto _ratingInstructions;
+        private readonly IExtensionDetailsDto _extensionDetailsDto;
 
-        internal RatingDialog(IExtensionDetailsDto ratingInstructions)
+        internal RatingDialog(IExtensionDetailsDto extensionDetailsDto)
         {
             InitializeComponent();
-            _ratingInstructions = ratingInstructions;
+            _extensionDetailsDto = extensionDetailsDto;
             InitializeReviewRequest(); 
         }
 
@@ -25,28 +25,28 @@ namespace VsixRatingChaser
             HasMinimizeButton = true;
             ResizeMode = ResizeMode.CanResize;
             SizeToContent = SizeToContent.WidthAndHeight;
-            Title = _ratingInstructions.ExtensionName;
+            Title = _extensionDetailsDto.ExtensionName;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             AppTextChaseStatement.Text =
-                $"I, {_ratingInstructions.AuthorName}, created the {_ratingInstructions.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive no income, direct or indirect, from it.{Environment.NewLine}All that I ask is that you rate this extension on the Visual Studio Market Place by clicking on the link below, it will be greatly appreciated.{Environment.NewLine}Thank you, {_ratingInstructions.AuthorName}";
+                $"I, {_extensionDetailsDto.AuthorName}, created the {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive no income, direct or indirect, from it.{Environment.NewLine}All that I ask is that you rate this extension on the Visual Studio Market Place by clicking on the link below, it will be greatly appreciated.{Environment.NewLine}Thank you, {_extensionDetailsDto.AuthorName}";
 
             AppTextClickForVsmp.Text = "Click here to place review";
 
-            var ratingRequestUrl = GetRatingRequestUrl();
+            var ratingRequestUrl = GetMarketPlaceUrl();
             AppHyperLink.NavigateUri = new Uri(ratingRequestUrl);
         }
 
-        private string GetRatingRequestUrl()
+        private string GetMarketPlaceUrl()
         {
-            var ratingRequestUrl = _ratingInstructions.MarketPlaceUrl;
+            var url = _extensionDetailsDto.MarketPlaceUrl;
 
-            if (!ratingRequestUrl.ToLower().EndsWith("#review-details".ToLower()))
+            if (!url.ToLower().EndsWith("#review-details".ToLower()))
             {
-                ratingRequestUrl += "#review-details";
+                url += "#review-details";
             }
 
-            return ratingRequestUrl;
+            return url;
         }
 
         private void AppHyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
