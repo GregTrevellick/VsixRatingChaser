@@ -121,10 +121,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChaseOutcomeDto.cs" />
+    <Compile Include="Dtos\ChaseOutcomeDto.cs" />
     <Compile Include="ChaseSettings.cs" />
     <Compile Include="Enums\RejectionReason.cs" />
-    <Compile Include="Interfaces\IExtensionDetailsDto.cs" />
+    <Compile Include="Dtos\ExtensionDetailsDto.cs" />
     <Compile Include="RatingDecider.cs" />
     <Compile Include="Interfaces\IRatingDetailsDto.cs" />
     <Compile Include="Interfaces\IChaser.cs" />
@@ -149,9 +149,7 @@
   <ItemGroup>
     <Content Include="TODO.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.12\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.12\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

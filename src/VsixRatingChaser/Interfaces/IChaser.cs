@@ -1,3 +1,5 @@
+using VsixRatingChaser.Dtos;
+
 namespace VsixRatingChaser.Interfaces
 {
     public interface IChaser
@@ -5,6 +7,6 @@ namespace VsixRatingChaser.Interfaces
         /// <summary>
         /// gregt
         /// </summary>
-        ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto);
+        ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto);
     }
 }

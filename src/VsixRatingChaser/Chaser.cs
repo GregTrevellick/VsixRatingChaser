@@ -1,4 +1,5 @@
 ﻿using System;
+using VsixRatingChaser.Dtos;
 using VsixRatingChaser.Enums;
 using VsixRatingChaser.Interfaces;
 
@@ -8,7 +9,7 @@ namespace VsixRatingChaser
     {
         private bool _ratingHyperLinkClicked;
 
-        public ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto)
+        public ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto)
         {
             var outcome = Validate(extensionDetailsDto);
 
@@ -28,7 +29,7 @@ namespace VsixRatingChaser
             return outcome;
         }
 
-        private ChaseOutcomeDto Validate(IExtensionDetailsDto extensionDetailsDto)
+        private ChaseOutcomeDto Validate(ExtensionDetailsDto extensionDetailsDto)
         {
             var outcome = new ChaseOutcomeDto();
 
@@ -60,7 +61,7 @@ namespace VsixRatingChaser
             return outcome;
         }
 
-        private void ShowDialog(IRatingDetailsDto ratingDetailsDto, IExtensionDetailsDto extensionDetailsDto)
+        private void ShowDialog(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto)
         {
             var ratingDialog = new RatingDialog(extensionDetailsDto);
             ratingDialog.Show();

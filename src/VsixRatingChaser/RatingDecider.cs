@@ -32,7 +32,7 @@ namespace VsixRatingChaser
         private bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap)//gregt unit test reqd
         {
             var now = DateTime.Now;
-            var acceptableDate = now.AddSeconds(-1 * ratingRequestGap);//gregt change to 3 months
+            var acceptableDate = now.AddSeconds(-1 * ratingRequestGap);//gregt change AddSeconds to AddMonths
             return lastRatingRequest < acceptableDate;
         }
     }

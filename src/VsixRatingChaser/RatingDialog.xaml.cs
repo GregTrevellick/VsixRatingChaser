@@ -3,16 +3,16 @@ using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Navigation;
-using VsixRatingChaser.Interfaces;
+using VsixRatingChaser.Dtos;
 
 namespace VsixRatingChaser
 {
     public partial class RatingDialog : DialogWindow
     {
         internal bool RatingHyperLinkClicked;
-        private readonly IExtensionDetailsDto _extensionDetailsDto;
+        private readonly ExtensionDetailsDto _extensionDetailsDto;
 
-        internal RatingDialog(IExtensionDetailsDto extensionDetailsDto)
+        internal RatingDialog(ExtensionDetailsDto extensionDetailsDto)
         {
             InitializeComponent();
             _extensionDetailsDto = extensionDetailsDto;
