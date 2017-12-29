@@ -29,9 +29,15 @@ namespace VsixRatingChaser
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             AppTextChaseStatement.Text =
-                $"I, {_extensionDetailsDto.AuthorName}, created the {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive no income, direct or indirect, from it.{Environment.NewLine}All that I ask is that you rate this extension on the Visual Studio Market Place by clicking on the link below, it will be greatly appreciated.{Environment.NewLine}Thank you, {_extensionDetailsDto.AuthorName}";
+                $"I created this {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive absolutely no income from it - I built it simply to help the community." +
+                Environment.NewLine + Environment.NewLine +
+                "So please rate this extension on the Visual Studio Marketplace website via the link below - it only takes a few seconds. The extension will not stop working or have reduced functionality if you don't review it, nor will you be bombarded with requests for a review, but given the cost of this extension it's the least you can do." +
+                Environment.NewLine + Environment.NewLine +
+                "You'll see this pop-up request a maximum of three times, at quarterly intervals." +
+                Environment.NewLine + Environment.NewLine +
+                $"Thank you, {_extensionDetailsDto.AuthorName}";
 
-            AppTextClickForVsmp.Text = "Click here to place review";
+            AppTextClickForVsmp.Text = $"Click here to review {_extensionDetailsDto.ExtensionName}";
 
             var ratingRequestUrl = GetMarketPlaceUrl();
             AppHyperLink.NavigateUri = new Uri(ratingRequestUrl);
