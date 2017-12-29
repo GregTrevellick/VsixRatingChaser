@@ -13,7 +13,7 @@
                     <TextBlock Name="AppTextClickForVsmp" />
                 </Hyperlink>
             </TextBlock>
-            <TextBlock Visibility="Collapsed" Margin="10,10,10,10" Name="AppTextLinkClickedThankYou" FontWeight="Bold" Text="THANK YOU!" />
+            <TextBlock Visibility="Collapsed" Margin="10,10,10,10" Name="AppTextLinkClickedThankYou" FontWeight="UltraBold" Text="THANK YOU!" />
         </StackPanel>
     </StackPanel>
         
