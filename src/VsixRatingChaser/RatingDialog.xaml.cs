@@ -37,7 +37,7 @@ namespace VsixRatingChaser
                 Environment.NewLine + Environment.NewLine +
                 $"Thank you, {_extensionDetailsDto.AuthorName}";
 
-            AppTextClickForVsmp.Text = $"Click here to review {_extensionDetailsDto.ExtensionName}";
+            AppTextClickForVsmp.Text = $"Click here to create a review for {_extensionDetailsDto.ExtensionName}";
 
             var ratingRequestUrl = GetMarketPlaceUrl();
             AppHyperLink.NavigateUri = new Uri(ratingRequestUrl);
