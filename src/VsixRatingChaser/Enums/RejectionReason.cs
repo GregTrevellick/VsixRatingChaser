@@ -6,10 +6,6 @@ namespace VsixRatingChaser.Enums
     {
         [Description("gregt0")]
         NotRejected = 0,
-        DialogTypeUndefined,
-        RatingRequestUrlUndefined,
-        RatingRequestUrlStartIsWrong,
-        RatingRequestUrlAnchorTagIsWrong,
         VsixNameCannotBeBlank,
         VsixAuthorCannotBeBlank,
         ImageTooBig,

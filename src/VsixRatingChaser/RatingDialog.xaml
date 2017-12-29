@@ -9,17 +9,12 @@
         <StackPanel Orientation="Horizontal">
             <Image Margin="10,10,10,10" VerticalAlignment="Top" HorizontalAlignment="Left" Name="AppImage" Stretch="None"/>
             <TextBlock Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Center" Name="AppTextChaseStatement" TextWrapping="Wrap"/>
-            <TextBlock Visibility="Collapsed" Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Right" Name="AppTextThankYou" FontWeight="Bold" Text="thank you" />
-            <TextBlock Visibility="Collapsed" Margin="5,5,5,5" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Left" Name="AppTextExplain" />
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Close" Margin="10,10,10,10" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Right" Click="AppBtnClose_OnClick" Name="AppBtnClose"/>
             <TextBlock Margin="10,10,10,10" >
                 <Hyperlink Name="AppHyperLink" RequestNavigate="AppHyperlink_RequestNavigate" >
                     <TextBlock Name="AppTextClickForVsmp" />
                 </Hyperlink>
             </TextBlock>
-            <Button Content="Help" Margin="10,10,10,10" Padding="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Left" Click="AppBtnHelp_OnClick" Name="AppBtnHelp"/>
+            <TextBlock Visibility="Collapsed" Margin="10,10,10,10" Padding="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Right" Name="AppTextLinkClickedThankYou" FontWeight="Bold" Text="THANK YOU!" />
         </StackPanel>
     </StackPanel>
         
