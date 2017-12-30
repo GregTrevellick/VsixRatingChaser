@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace VsixRatingChaser.UnitTests
 {
@@ -22,5 +23,74 @@ namespace VsixRatingChaser.UnitTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void ExceededRatingRequestGapTest1()
+        {
+            // Arrange
+            var sut = new RatingDecider();
+            var ratingRequestGap = 3;
+            var lastRatingRequest = new DateTime(2017, 6, 1, 0, 0, 0);
+            var now = new DateTime(2017, 5, 1, 0, 0, 0);
+            var expected = false;
+
+            // Act
+            var actual = sut.ExceededRatingRequestGap(lastRatingRequest, ratingRequestGap, now);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ExceededRatingRequestGapTest2()
+        {
+            // Arrange
+            var sut = new RatingDecider();
+            var ratingRequestGap = 3;
+            var lastRatingRequest = new DateTime(2017, 6, 1, 0, 0, 0);
+            var now = new DateTime(2017, 6, 1, 0, 0, 0);
+            var expected = false;
+
+            // Act
+            var actual = sut.ExceededRatingRequestGap(lastRatingRequest, ratingRequestGap, now);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ExceededRatingRequestGapTest3()
+        {
+            // Arrange
+            var sut = new RatingDecider();
+            var ratingRequestGap = 3;
+            var lastRatingRequest = new DateTime(2017, 6, 1, 0, 0, 0);
+            var now = new DateTime(2017, 7, 1, 0, 0, 0);
+            var expected = false;
+
+            // Act
+            var actual = sut.ExceededRatingRequestGap(lastRatingRequest, ratingRequestGap, now);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ExceededRatingRequestGapTest4()
+        {
+            // Arrange
+            var sut = new RatingDecider();
+            var ratingRequestGap = 3;
+            var lastRatingRequest = new DateTime(2017, 6, 1, 0, 0, 0);
+            var now = new DateTime(2017, 9, 2, 0, 0, 0);
+            var expected = true;
+
+            // Act
+            var actual = sut.ExceededRatingRequestGap(lastRatingRequest, ratingRequestGap, now);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

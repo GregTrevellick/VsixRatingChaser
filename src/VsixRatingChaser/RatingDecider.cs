@@ -13,7 +13,7 @@ namespace VsixRatingChaser
 
             if (!exceededRatingRequestLimit)
             {
-                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(ratingDetailsDto.LastRatingRequest, ChaseSettings.RatingRequestGap);
+                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(ratingDetailsDto.LastRatingRequest, ChaseSettings.RatingRequestGap, DateTime.Now);
 
                 if (exceededChaseTimeGapLimit) 
                 {
@@ -29,10 +29,10 @@ namespace VsixRatingChaser
             return ratingRequestCount > ratingRequestLimit;
         }
 
-        internal bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap)//gregt unit test reqd
+        internal bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap, DateTime now)
         {
-            var now = DateTime.Now;
-            var acceptableDate = now.AddSeconds(-1 * ratingRequestGap);//gregt change AddSeconds to AddMonths
+            var acceptableDate = now.AddMonths(-1 * ratingRequestGap);//gregt change AddSeconds to AddMonths
+            //var acceptableDate = now.AddSeconds(-1 * ratingRequestGap);//gregt change AddSeconds to AddMonths
             return lastRatingRequest < acceptableDate;
         }
     }
