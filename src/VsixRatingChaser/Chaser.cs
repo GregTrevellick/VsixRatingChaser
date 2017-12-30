@@ -5,10 +5,19 @@ using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser
 {
+    /// <summary>
+    /// gregt
+    /// </summary>
     public class Chaser : IChaser
     {
         private bool _ratingHyperLinkClicked;
 
+        /// <summary>
+        /// gregt
+        /// </summary>
+        /// <param name="ratingDetailsDto"></param>
+        /// <param name="extensionDetailsDto"></param>
+        /// <returns></returns>
         public ChaseOutcome Chase(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto)
         {
             var outcome = Validate(extensionDetailsDto);
