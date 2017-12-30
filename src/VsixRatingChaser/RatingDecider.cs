@@ -16,7 +16,7 @@ namespace VsixRatingChaser
             return shouldShowDialog;
         }
 
-        internal bool ShouldShowDialog(bool exceededRatingRequestLimit, bool exceededChaseTimeGapLimit)//gregt unit test reqd
+        internal bool ShouldShowDialog(bool exceededRatingRequestLimit, bool exceededChaseTimeGapLimit)
         {
             var shouldShowDialog = false;
 

@@ -92,5 +92,22 @@ namespace VsixRatingChaser.UnitTests
             Assert.AreEqual(expected, actual);
         }
 
+        [DataTestMethod]
+        [DataRow(false, false, false)]
+        [DataRow(true, false, false)]
+        [DataRow(false, true, true)]
+        [DataRow(true, true, false)]
+        public void ShouldShowDialogTest(bool exceededRatingRequestLimit, bool exceededChaseTimeGapLimit, bool expected)
+        {
+            // Arrange
+            var sut = new RatingDecider();
+
+            // Act
+            var actual = sut.ShouldShowDialog(exceededRatingRequestLimit, exceededChaseTimeGapLimit);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
