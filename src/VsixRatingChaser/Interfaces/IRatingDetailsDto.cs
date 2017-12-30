@@ -4,17 +4,17 @@ using Microsoft.VisualStudio.Shell;
 namespace VsixRatingChaser.Interfaces
 {
     /// <summary>
-    /// gregt
+    /// A DTO containing parameters supplied to the package by the caller
     /// </summary>
     public interface IRatingDetailsDto : IProfileManager
     {
         /// <summary>
-        /// gregt
+        /// The date/time the previous rating request took place
         /// </summary>
-        DateTime LastRatingRequest { get; set; }
+        DateTime PreviousRatingRequest { get; set; }
 
         /// <summary>
-        /// gregt
+        /// The total number of times a request for ratings has taken place
         /// </summary>
         int RatingRequestCount { get; set; }
     }

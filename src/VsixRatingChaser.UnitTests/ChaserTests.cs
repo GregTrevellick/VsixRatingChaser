@@ -49,7 +49,7 @@ namespace VsixRatingChaser.UnitTests
             var actual = ValidateTest(new ExtensionDetailsDto { AuthorName = "any", ExtensionName = "any", MarketPlaceUrl = "any" });
 
             // Assert
-            Assert.AreEqual(ChaseOutcome.InvalidCallAsMarketplaceUrlPrefixIsWrong, actual);
+            Assert.AreEqual(ChaseOutcome.InvalidCallAsMarketplaceUrlIsNotTheVisualStudioMarketplaceDomain, actual);
         }
 
         private ChaseOutcome ValidateTest(ExtensionDetailsDto extensionDetailsDto)

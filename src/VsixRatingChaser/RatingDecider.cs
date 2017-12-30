@@ -9,7 +9,7 @@ namespace VsixRatingChaser
         {
             var exceededRatingRequestLimit = ExceededRatingRequestLimit(ratingDetailsDto.RatingRequestCount, ChaseSettings.RatingRequestLimit);
 
-            var exceededChaseTimeGapLimit = ExceededRatingRequestGap(ratingDetailsDto.LastRatingRequest, ChaseSettings.RatingRequestGap, DateTime.Now);
+            var exceededChaseTimeGapLimit = ExceededRatingRequestGap(ratingDetailsDto.PreviousRatingRequest, ChaseSettings.RatingRequestGap, DateTime.Now);
 
             var shouldShowDialog = ShouldShowDialog(exceededRatingRequestLimit, exceededChaseTimeGapLimit);
 
@@ -36,11 +36,11 @@ namespace VsixRatingChaser
             return ratingRequestCount > ratingRequestLimit;
         }
 
-        internal bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap, DateTime now)
+        internal bool ExceededRatingRequestGap(DateTime previousRatingRequest, int ratingRequestGap, DateTime now)
         {
             //var acceptableDate = now.AddMonths(-1 * ratingRequestGap);
             var acceptableDate = now.AddSeconds(-1 * ratingRequestGap);//gregt change AddSeconds to AddMonths
-            return lastRatingRequest < acceptableDate;
+            return previousRatingRequest < acceptableDate;
         }
     }
 }

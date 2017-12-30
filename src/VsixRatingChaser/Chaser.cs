@@ -66,7 +66,7 @@ namespace VsixRatingChaser
                         if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
                             .StartsWith(ChaseSettings.MarketplaceUrlPrefix.ToLower()))
                         {
-                            outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlPrefixIsWrong;
+                            outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlIsNotTheVisualStudioMarketplaceDomain;
                         }
                     }
                 }
@@ -86,7 +86,7 @@ namespace VsixRatingChaser
 
         private void PersistRatingDetails(IRatingDetailsDto ratingDetailsDto)
         {
-            ratingDetailsDto.LastRatingRequest = DateTime.Now;
+            ratingDetailsDto.PreviousRatingRequest = DateTime.Now;
             ratingDetailsDto.RatingRequestCount++;
             ratingDetailsDto.SaveSettingsToStorage();
         }
