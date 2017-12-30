@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <licenseUrl>https://github.com/GregTrevellick/VsixRatingChaser/blob/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/GregTrevellick/VsixRatingChaser</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <iconUrl>https://github.com/GregTrevellick/VsixRatingChaser/raw/master/NugetIcon_64x64.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
