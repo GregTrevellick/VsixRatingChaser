@@ -9,11 +9,11 @@ namespace VsixRatingChaser
     {
         private bool _ratingHyperLinkClicked;
 
-        public ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto)
+        public ChaseOutcome Chase(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto)
         {
             var outcome = Validate(extensionDetailsDto);
 
-            if (outcome.OutcomeStatus == OutcomeStatus.Unknown)
+            if (outcome == ChaseOutcome.Unknown)
             {
                 var ratingDecider = new RatingDecider();
                 var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
@@ -23,45 +23,45 @@ namespace VsixRatingChaser
                     ShowDialog(ratingDetailsDto, extensionDetailsDto);
                     if (_ratingHyperLinkClicked)
                     {
-                        outcome.OutcomeStatus = OutcomeStatus.SuccesfulCallAndDialogShownToUserUrlClicked;
+                        outcome = ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlClicked;
                     }
                     else
                     {
-                        outcome.OutcomeStatus = OutcomeStatus.SuccesfulCallAndDialogShownToUserUrlNotClicked;
+                        outcome = ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlNotClicked;
                     }
                 }
                 else
                 {
-                    outcome.OutcomeStatus = OutcomeStatus.SuccesfulCallButDialogNotShownToUser;
+                    outcome = ChaseOutcome.SuccessfullCallButDialogNotShownToUser;
                 }
             }
 
             return outcome;
         }
 
-        private ChaseOutcomeDto Validate(ExtensionDetailsDto extensionDetailsDto)
+        private ChaseOutcome Validate(ExtensionDetailsDto extensionDetailsDto)
         {
-            var outcome = new ChaseOutcomeDto();
+            var outcome = ChaseOutcome.Unknown;
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.AuthorName))
             {
-                outcome.OutcomeStatus = OutcomeStatus.AuthorNameCannotBeBlank;
+                outcome = ChaseOutcome.InvalidCallAsAuthorNameCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.ExtensionName))
             {
-                outcome.OutcomeStatus = OutcomeStatus.ExtensionNameCannotBeBlank;
+                outcome = ChaseOutcome.InvalidCallAsExtensionNameCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.MarketPlaceUrl))
             {
-                outcome.OutcomeStatus = OutcomeStatus.MarketplaceUrlUndefined;
+                outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlUndefined;
             }
 
             if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
                 .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
             {
-                outcome.OutcomeStatus = OutcomeStatus.MarketplaceUrlStartIsWrong;
+                outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlStartIsWrong;
             }
 
             return outcome;

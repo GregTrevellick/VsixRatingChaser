@@ -1,4 +1,5 @@
 using VsixRatingChaser.Dtos;
+using VsixRatingChaser.Enums;
 
 namespace VsixRatingChaser.Interfaces
 {
@@ -7,6 +8,6 @@ namespace VsixRatingChaser.Interfaces
         /// <summary>
         /// gregt
         /// </summary>
-        ChaseOutcomeDto Chase(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto);
+        ChaseOutcome Chase(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto);
     }
 }

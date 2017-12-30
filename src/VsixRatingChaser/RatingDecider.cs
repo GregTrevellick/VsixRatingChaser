@@ -5,15 +5,15 @@ namespace VsixRatingChaser
 {
     internal class RatingDecider
     {
-        internal bool ShouldShowDialog(IRatingDetailsDto hiddenChaserOptions)
+        internal bool ShouldShowDialog(IRatingDetailsDto ratingDetailsDto)
         {
             var shouldShowDialog = false;
 
-            var exceededRatingRequestLimit = ExceededRatingRequestLimit(hiddenChaserOptions.RatingRequestCount, ChaseSettings.RatingRequestLimit);
+            var exceededRatingRequestLimit = ExceededRatingRequestLimit(ratingDetailsDto.RatingRequestCount, ChaseSettings.RatingRequestLimit);
 
             if (!exceededRatingRequestLimit)
             {
-                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(hiddenChaserOptions.LastRatingRequest, ChaseSettings.RatingRequestGap);
+                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(ratingDetailsDto.LastRatingRequest, ChaseSettings.RatingRequestGap);
 
                 if (exceededChaseTimeGapLimit) 
                 {
