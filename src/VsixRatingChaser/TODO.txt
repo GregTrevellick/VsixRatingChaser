@@ -1,7 +1,3 @@
 ﻿xml annotations
-convert rejections to exceptions
-readme
 unit tests / code coverage %
-
-
-
+readme

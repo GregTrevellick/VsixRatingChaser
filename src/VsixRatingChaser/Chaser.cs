@@ -13,7 +13,7 @@ namespace VsixRatingChaser
         {
             var outcome = Validate(extensionDetailsDto);
 
-            if (!outcome.Rejected)
+            if (outcome.OutcomeStatus == OutcomeStatus.Unknown)
             {
                 var ratingDecider = new RatingDecider();
                 var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
@@ -21,8 +21,18 @@ namespace VsixRatingChaser
                 if (shouldShowDialog)
                 {
                     ShowDialog(ratingDetailsDto, extensionDetailsDto);
-                    outcome.ReviewRequestDialogShown = true;
-                    outcome.MarketplaceHyperLinkClicked = _ratingHyperLinkClicked;
+                    if (_ratingHyperLinkClicked)
+                    {
+                        outcome.OutcomeStatus = OutcomeStatus.SuccesfulCallAndDialogShownToUserUrlClicked;
+                    }
+                    else
+                    {
+                        outcome.OutcomeStatus = OutcomeStatus.SuccesfulCallAndDialogShownToUserUrlNotClicked;
+                    }
+                }
+                else
+                {
+                    outcome.OutcomeStatus = OutcomeStatus.SuccesfulCallButDialogNotShownToUser;
                 }
             }
 
@@ -35,27 +45,23 @@ namespace VsixRatingChaser
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.AuthorName))
             {
-                outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.AuthorNameCannotBeBlank;
+                outcome.OutcomeStatus = OutcomeStatus.AuthorNameCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.ExtensionName))
             {
-                outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.ExtensionNameCannotBeBlank;
+                outcome.OutcomeStatus = OutcomeStatus.ExtensionNameCannotBeBlank;
             }
 
             if (string.IsNullOrWhiteSpace(extensionDetailsDto.MarketPlaceUrl))
             {
-                outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.MarketplaceUrlUndefined;
+                outcome.OutcomeStatus = OutcomeStatus.MarketplaceUrlUndefined;
             }
 
             if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
                 .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
             {
-                outcome.Rejected = true;
-                outcome.RejectionReason = RejectionReason.MarketplaceUrlStartIsWrong;
+                outcome.OutcomeStatus = OutcomeStatus.MarketplaceUrlStartIsWrong;
             }
 
             return outcome;

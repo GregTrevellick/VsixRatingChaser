@@ -123,7 +123,8 @@
   <ItemGroup>
     <Compile Include="Dtos\ChaseOutcomeDto.cs" />
     <Compile Include="ChaseSettings.cs" />
-    <Compile Include="Enums\RejectionReason.cs" />
+    <Compile Include="Enums\EnumExtensions.cs" />
+    <Compile Include="Enums\OutcomeStatus.cs" />
     <Compile Include="Dtos\ExtensionDetailsDto.cs" />
     <Compile Include="RatingDecider.cs" />
     <Compile Include="Interfaces\IRatingDetailsDto.cs" />
