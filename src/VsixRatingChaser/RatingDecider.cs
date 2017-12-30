@@ -5,7 +5,7 @@ namespace VsixRatingChaser
 {
     internal class RatingDecider
     {
-        internal bool ShouldShowDialog(IRatingDetailsDto ratingDetailsDto)
+        internal bool ShouldShowDialog(IRatingDetailsDto ratingDetailsDto)//gregt unit test reqd
         {
             var shouldShowDialog = false;
 

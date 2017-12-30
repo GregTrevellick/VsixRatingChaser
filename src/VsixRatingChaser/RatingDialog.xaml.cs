@@ -43,7 +43,7 @@ namespace VsixRatingChaser
             AppHyperLink.NavigateUri = new Uri(ratingRequestUrl);
         }
 
-        private string GetMarketPlaceUrl()
+        private string GetMarketPlaceUrl()//gregt unit test reqd
         {
             var url = _extensionDetailsDto.MarketPlaceUrl;
 
