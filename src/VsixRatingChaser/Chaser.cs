@@ -32,29 +32,36 @@ namespace VsixRatingChaser
             return outcome;
         }
 
-        private ChaseOutcome Validate(ExtensionDetailsDto extensionDetailsDto)//gregt unit test reqd
+        internal ChaseOutcome Validate(ExtensionDetailsDto extensionDetailsDto)//gregt unit test reqd
         {
             var outcome = ChaseOutcome.Unknown;
 
-            if (string.IsNullOrWhiteSpace(extensionDetailsDto.AuthorName))
+            if (string.IsNullOrWhiteSpace(extensionDetailsDto?.AuthorName))
             {
                 outcome = ChaseOutcome.InvalidCallAsAuthorNameCannotBeBlank;
             }
-
-            if (string.IsNullOrWhiteSpace(extensionDetailsDto.ExtensionName))
+            else
             {
-                outcome = ChaseOutcome.InvalidCallAsExtensionNameCannotBeBlank;
-            }
+                if (string.IsNullOrWhiteSpace(extensionDetailsDto?.ExtensionName))
+                {
+                    outcome = ChaseOutcome.InvalidCallAsExtensionNameCannotBeBlank;
+                }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(extensionDetailsDto?.MarketPlaceUrl))
+                    {
+                        outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlUndefined;
+                    }
+                    else
+                    {
+                        if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
+                            .StartsWith(ChaseSettings.MarketplaceUrlPrefix.ToLower()))
+                        {
+                            outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlPrefixIsWrong;
+                        }
+                    }
+                }
 
-            if (string.IsNullOrWhiteSpace(extensionDetailsDto.MarketPlaceUrl))
-            {
-                outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlUndefined;
-            }
-
-            if (!extensionDetailsDto.MarketPlaceUrl.ToLower()
-                .StartsWith("https://marketplace.visualstudio.com/items?itemName=".ToLower()))
-            {
-                outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlStartIsWrong;
             }
 
             return outcome;

@@ -8,7 +8,7 @@
         SuccessfullCallAndDialogShownToUserUrlClicked,
         InvalidCallAsAuthorNameCannotBeBlank,
         InvalidCallAsExtensionNameCannotBeBlank,
-        InvalidCallAsMarketplaceUrlStartIsWrong,
+        InvalidCallAsMarketplaceUrlPrefixIsWrong,
         InvalidCallAsMarketplaceUrlUndefined,
     }
 }
