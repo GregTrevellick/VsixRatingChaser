@@ -14,6 +14,8 @@
 [![Build status][AppVeyorProjectBuildStatusBadgeSvg]][AppVeyorProjectUrl]
 [![CharityWare](https://img.shields.io/badge/Charity%20Ware-Thank%20You-brightgreen.svg)][CharityWareURL]
 
+![Vsix Rating Chaser](NugetIcon_64x64.png "Vsix Rating Chaser Logo")
+
 A [charity ware][CharityWareURL] package to gently encourage reviews for [Visual Studio][VisualStudioURL] extensions.
 
 Available for download at the [nuget gallery][NugetUrl].
