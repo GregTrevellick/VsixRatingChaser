@@ -2,3 +2,8 @@
 convert rejections to exceptions
 readme
 unit tests / code coverage %
+
+
+
+VSMM
+https://img.shields.io/chrome-web-store/users/nimelepbpejjlbmoobocpfnjhihnpked.svg
