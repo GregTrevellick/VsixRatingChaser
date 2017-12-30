@@ -21,14 +21,7 @@ namespace VsixRatingChaser
                 if (shouldShowDialog)
                 {
                     ShowDialog(ratingDetailsDto, extensionDetailsDto);
-                    if (_ratingHyperLinkClicked)
-                    {
-                        outcome = ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlClicked;
-                    }
-                    else
-                    {
-                        outcome = ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlNotClicked;
-                    }
+                    outcome = _ratingHyperLinkClicked ? ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlClicked : ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlNotClicked;
                 }
                 else
                 {
