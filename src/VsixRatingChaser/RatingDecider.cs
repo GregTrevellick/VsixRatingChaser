@@ -5,17 +5,24 @@ namespace VsixRatingChaser
 {
     internal class RatingDecider
     {
-        internal bool ShouldShowDialog(IRatingDetailsDto ratingDetailsDto)//gregt unit test reqd
+        internal bool ShouldShowDialog(IRatingDetailsDto ratingDetailsDto)
+        {
+            var exceededRatingRequestLimit = ExceededRatingRequestLimit(ratingDetailsDto.RatingRequestCount, ChaseSettings.RatingRequestLimit);
+
+            var exceededChaseTimeGapLimit = ExceededRatingRequestGap(ratingDetailsDto.LastRatingRequest, ChaseSettings.RatingRequestGap, DateTime.Now);
+
+            var shouldShowDialog = ShouldShowDialog(exceededRatingRequestLimit, exceededChaseTimeGapLimit);
+
+            return shouldShowDialog;
+        }
+
+        internal bool ShouldShowDialog(bool exceededRatingRequestLimit, bool exceededChaseTimeGapLimit)//gregt unit test reqd
         {
             var shouldShowDialog = false;
 
-            var exceededRatingRequestLimit = ExceededRatingRequestLimit(ratingDetailsDto.RatingRequestCount, ChaseSettings.RatingRequestLimit);
-
             if (!exceededRatingRequestLimit)
             {
-                var exceededChaseTimeGapLimit = ExceededRatingRequestGap(ratingDetailsDto.LastRatingRequest, ChaseSettings.RatingRequestGap, DateTime.Now);
-
-                if (exceededChaseTimeGapLimit) 
+                if (exceededChaseTimeGapLimit)
                 {
                     shouldShowDialog = true;
                 }
