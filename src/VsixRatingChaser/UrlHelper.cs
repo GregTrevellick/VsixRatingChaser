@@ -2,11 +2,14 @@
 {
     internal class UrlHelper
     {
-        internal static string GetMarketPlaceUrl(string url)//gregt unit test reqd
+        internal static string GetMarketPlaceUrl(string url)
         {
-            if (!url.ToLower().EndsWith("#review-details".ToLower()))
+            if (!string.IsNullOrWhiteSpace(url))
             {
-                url += "#review-details";
+                if (!url.ToLower().EndsWith("#review-details".ToLower()))
+                {
+                    url += "#review-details";
+                }
             }
 
             return url;
