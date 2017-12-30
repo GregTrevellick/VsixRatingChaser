@@ -13,7 +13,7 @@ namespace VsixRatingChaser
         {
             var outcome = Validate(extensionDetailsDto);
 
-            if (outcome == ChaseOutcome.Unknown)//gregt unit test reqd
+            if (outcome == ChaseOutcome.Unknown)
             {
                 var ratingDecider = new RatingDecider();
                 var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
@@ -21,7 +21,7 @@ namespace VsixRatingChaser
                 if (shouldShowDialog)
                 {
                     ShowDialog(ratingDetailsDto, extensionDetailsDto);
-                    outcome = _ratingHyperLinkClicked ? ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlClicked : ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlNotClicked;//gregt unit test reqd
+                    outcome = _ratingHyperLinkClicked ? ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlClicked : ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlNotClicked;
                 }
                 else
                 {
