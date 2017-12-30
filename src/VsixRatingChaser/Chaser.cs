@@ -40,7 +40,7 @@ namespace VsixRatingChaser
 
         internal ChaseOutcome Validate(ExtensionDetailsDto extensionDetailsDto)
         {
-            //gregt validate name & author >3 long
+            //TODO validate name & author > 3 long
 
             var outcome = ChaseOutcome.Unknown;
 
