@@ -32,7 +32,7 @@ namespace VsixRatingChaser
             return outcome;
         }
 
-        internal ChaseOutcome Validate(ExtensionDetailsDto extensionDetailsDto)//gregt unit test reqd
+        internal ChaseOutcome Validate(ExtensionDetailsDto extensionDetailsDto)
         {
             var outcome = ChaseOutcome.Unknown;
 
