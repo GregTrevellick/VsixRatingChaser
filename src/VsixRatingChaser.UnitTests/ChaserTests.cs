@@ -40,7 +40,7 @@ namespace VsixRatingChaser.UnitTests
             var actual = ValidateTest(new ExtensionDetailsDto { AuthorName = "any", ExtensionName="any" });
 
             // Assert
-            Assert.AreEqual(ChaseOutcome.InvalidCallAsMarketplaceUrlUndefined, actual);
+            Assert.AreEqual(ChaseOutcome.InvalidCallAsMarketplaceUrlCannotBeBlank, actual);
         }
 
         [TestMethod]

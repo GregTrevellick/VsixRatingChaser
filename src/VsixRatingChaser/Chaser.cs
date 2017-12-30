@@ -59,7 +59,7 @@ namespace VsixRatingChaser
                 {
                     if (string.IsNullOrWhiteSpace(extensionDetailsDto?.MarketPlaceUrl))
                     {
-                        outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlUndefined;
+                        outcome = ChaseOutcome.InvalidCallAsMarketplaceUrlCannotBeBlank;
                     }
                     else
                     {

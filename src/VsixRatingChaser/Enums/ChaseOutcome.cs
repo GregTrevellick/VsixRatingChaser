@@ -1,7 +1,7 @@
 ﻿namespace VsixRatingChaser.Enums
 {
     /// <summary>
-    /// gregt
+    /// A list of possible outcomes from invoking the package
     /// </summary>
     public enum ChaseOutcome
     {
@@ -11,7 +11,7 @@
         SuccessfullCallAndDialogShownToUserUrlClicked,
         InvalidCallAsAuthorNameCannotBeBlank,
         InvalidCallAsExtensionNameCannotBeBlank,
-        InvalidCallAsMarketplaceUrlPrefixIsWrong,
-        InvalidCallAsMarketplaceUrlUndefined,
+        InvalidCallAsMarketplaceUrlIsNotTheVisualStudioMarketplaceDomain,
+        InvalidCallAsMarketplaceUrlCannotBeBlank,
     }
 }
