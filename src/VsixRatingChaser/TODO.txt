@@ -2,4 +2,3 @@
 convert rejections to exceptions
 readme
 unit tests / code coverage %
-licence file - free only for non-commercial use
