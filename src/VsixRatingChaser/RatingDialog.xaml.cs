@@ -39,20 +39,8 @@ namespace VsixRatingChaser
 
             AppTextClickForVsmp.Text = $"Click here to create a review for {_extensionDetailsDto.ExtensionName}";
 
-            var ratingRequestUrl = GetMarketPlaceUrl();
+            var ratingRequestUrl = UrlHelper.GetMarketPlaceUrl(_extensionDetailsDto.MarketPlaceUrl);
             AppHyperLink.NavigateUri = new Uri(ratingRequestUrl);
-        }
-
-        private string GetMarketPlaceUrl()//gregt unit test reqd
-        {
-            var url = _extensionDetailsDto.MarketPlaceUrl;
-
-            if (!url.ToLower().EndsWith("#review-details".ToLower()))
-            {
-                url += "#review-details";
-            }
-
-            return url;
         }
 
         private void AppHyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

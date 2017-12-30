@@ -132,6 +132,7 @@
     <Compile Include="RatingDialog.xaml.cs">
       <DependentUpon>RatingDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UrlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="RatingDialog.xaml">
