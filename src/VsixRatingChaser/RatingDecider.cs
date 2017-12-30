@@ -24,12 +24,12 @@ namespace VsixRatingChaser
             return shouldShowDialog;
         }
 
-        private bool ExceededRatingRequestLimit(int ratingRequestCount, int ratingRequestLimit)//gregt unit test reqd
+        internal bool ExceededRatingRequestLimit(int ratingRequestCount, int ratingRequestLimit)
         {
             return ratingRequestCount > ratingRequestLimit;
         }
 
-        private bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap)//gregt unit test reqd
+        internal bool ExceededRatingRequestGap(DateTime lastRatingRequest, int ratingRequestGap)//gregt unit test reqd
         {
             var now = DateTime.Now;
             var acceptableDate = now.AddSeconds(-1 * ratingRequestGap);//gregt change AddSeconds to AddMonths
