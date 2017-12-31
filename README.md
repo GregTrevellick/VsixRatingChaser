@@ -16,7 +16,7 @@
 
 ![Vsix Rating Chaser](NugetIcon_64x64.png "Vsix Rating Chaser Logo")
 
-A package to gently encourage reviews for [Visual Studio][VisualStudioURL] extensions.
+A package to gently encourage ratings / reviews for [Visual Studio][VisualStudioURL] extensions.
 
 Available for download at the [nuget gallery][NugetUrl].
 
@@ -28,15 +28,15 @@ For example, [Developer Analytics Tools](https://marketplace.visualstudio.com/it
 
 [GitHub Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) fairs slightly better at 57 reviews for 37m installs.
 
-So I decided to build a package that visual studio extension authors could use to **gently** and **unobtrusively** encourage their users to review their extensions.
+So I decided to build a package that visual studio extension authors could use to **gently** and **unobtrusively** encourage their users to rate their extensions.
 
 ## How It Works
 
-Your visual studio extension will call into this package, and it will, at **three month intervals**, for **a maximum of three times**, present the user with a pop-up window asking for a review.
+Your visual studio extension will call into this package, and it will, at **three month intervals**, for **a maximum of three times**, present the user with a pop-up window asking for a rating.
 
-It is deliberately low-key, and does not actually track if a review has been made.
+It is deliberately low-key, and does not actually track if a rating or review has been made.
 
-It does not disable any functionality of your vsix if a review hasn't been made (how could it?).
+It does not disable any functionality of your vsix if a rating / review hasn't been made (how could it?).
 
 The pop-up request explains how your extension was lovingly created for free by you, and how you don't get paid for it. 
 
@@ -58,7 +58,7 @@ I did consider making the text configurable, but in the interests of simplicity,
 
 That's it. 
 
-The package takes care of persisting the date that the next pop-up is due, and monitors how many pop-ups the user has already been presented with, so that they don't get prompted to review indefinitely.
+The package takes care of persisting the date that the next pop-up is due, and monitors how many pop-ups the user has already been presented with, so that they don't get prompted to rate / review indefinitely.
 
 The response from the call can be interrogated, but essentially explains:
  - If the pop-up was not displayed or not 

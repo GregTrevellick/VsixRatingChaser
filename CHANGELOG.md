@@ -16,7 +16,9 @@ Individual releases are tagged as such in GitHub.
 
 
 
-gregt - i get nowt from advertising
+
 gregt - sorry if u have already reviewed
-gregt - just click the stars, dont need to write sentences
-gregt - define a dependancy upon 'Microsoft.VisualStudio.Shell.15.0' & .Net 4.7 to nuspec
+
+
+
+gregt - check that nuget pack adds a dependancy upon 'Microsoft.VisualStudio.Shell.15.0' & .Net 4.7 

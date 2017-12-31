@@ -10,7 +10,7 @@ namespace VsixRatingChaser
         private bool _ratingHyperLinkClicked;
 
         /// <summary>
-        /// Validates the request and conditionally displays a pop-up to user asking for an online review
+        /// Validates the request and conditionally displays a pop-up to user asking for an online rating / review
         /// </summary>
         /// <param name="ratingDetailsDto">Parameter data related to the request for ratings</param>
         /// <param name="extensionDetailsDto">Parameter data related to the Visual Studio extension</param>

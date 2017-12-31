@@ -16,10 +16,10 @@ namespace VsixRatingChaser
         {
             InitializeComponent();
             _extensionDetailsDto = extensionDetailsDto;
-            InitializeReviewRequest(); 
+            InitializeRatingRequest(); 
         }
 
-        private void InitializeReviewRequest()
+        private void InitializeRatingRequest()
         {
             HasMaximizeButton = true;
             HasMinimizeButton = true;
@@ -29,15 +29,15 @@ namespace VsixRatingChaser
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             AppTextChaseStatement.Text =
-                $"I created this {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive absolutely no income from it - I built it simply to help the community." +
+                $"I created this {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive absolutely no income from it - I built it simply to help the community. It is not supported by or paid for in anyway by advertising." +
                 Environment.NewLine + Environment.NewLine +
-                "So please rate this extension on the Visual Studio Marketplace website via the link below - it only takes a few seconds. The extension will not stop working or have reduced functionality if you don't review it, nor will you be bombarded with requests for a review, but given the cost of this extension it's the least you can do." +
+                "So please rate this extension on the Visual Studio Marketplace website via the link below - it only takes a few seconds (just click the stars at top of page after clicking the link, there's no need to write an actual review unless you want to). The extension will not stop working or have reduced functionality if you don't rate it, nor will you be bombarded with requests for a rating, but given the cost of this extension it's the least you can do." +
                 Environment.NewLine + Environment.NewLine +
                 "You'll see this pop-up request a maximum of three times, at quarterly intervals." +
                 Environment.NewLine + Environment.NewLine +
                 $"Thank you, {_extensionDetailsDto.AuthorName}";
 
-            AppTextClickForVsmp.Text = $"Click here to create a review for {_extensionDetailsDto.ExtensionName}";
+            AppTextClickForVsmp.Text = $"Click here to rate {_extensionDetailsDto.ExtensionName}";
 
             var ratingRequestUrl = UrlHelper.GetMarketPlaceUrl(_extensionDetailsDto.MarketPlaceUrl);
             AppHyperLink.NavigateUri = new Uri(ratingRequestUrl);
