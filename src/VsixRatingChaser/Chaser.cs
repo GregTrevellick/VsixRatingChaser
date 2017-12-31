@@ -89,7 +89,7 @@ namespace VsixRatingChaser
             }
         }
 
-        internal static bool IsInaugrualInvocation(int ratingRequestCount, DateTime previousRatingRequest)//gregt unit test
+        internal static bool IsInaugrualInvocation(int ratingRequestCount, DateTime previousRatingRequest)
         {
             if (ratingRequestCount == 0 &&
                 previousRatingRequest == DateTime.MinValue)
