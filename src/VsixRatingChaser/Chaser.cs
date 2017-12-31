@@ -76,7 +76,7 @@ namespace VsixRatingChaser
 
         private void ShowDialog(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto)
         {
-            var ratingDialog = new RatingDialog(extensionDetailsDto);
+            var ratingDialog = new RatingDialog(extensionDetailsDto, ratingDetailsDto.RatingRequestCount);
             ratingDialog.Show();
             _ratingHyperLinkClicked = ratingDialog.RatingHyperLinkClicked;
             PersistRatingDetails(ratingDetailsDto);

@@ -15,9 +15,9 @@ Individual releases are tagged as such in GitHub.
 
 
 
+gregt debugging section in readme
 
 
-gregt - sorry if u have already reviewed
 
 
 
