@@ -31,7 +31,7 @@ namespace VsixRatingChaser
             return shouldShowDialog;
         }
 
-        internal bool ExceededRatingRequestLimit(int ratingRequestCount, int ratingRequestLimit)//gregt unit test
+        internal bool ExceededRatingRequestLimit(int ratingRequestCount, int ratingRequestLimit)
         {
             return ratingRequestCount >= ratingRequestLimit;
         }
