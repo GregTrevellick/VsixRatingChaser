@@ -14,6 +14,5 @@ Individual releases are tagged as such in GitHub.
 
 
 
-gregt testing
 
 gregt - check that nuget pack adds a dependancy upon 'Microsoft.VisualStudio.Shell.15.0' & .Net 4.7 
