@@ -62,6 +62,19 @@ namespace VsixRatingChaser.UnitTests
         }
 
         [TestMethod]
+        public void ValidateRatingDetailsDtoTest5()
+        {
+            // Arrange
+            var sut = new Chaser();
+
+            // Act
+            var actual = sut.ValidateRatingDetailsDto(-1, DateTime.MinValue);
+
+            // Assert
+            Assert.AreEqual(ChaseOutcome.InvalidCallAsRatingRequestCountIsNegative, actual);
+        }
+
+        [TestMethod]
         public void ValidateTest1()
         {
             var actual = ValidateTest(null);

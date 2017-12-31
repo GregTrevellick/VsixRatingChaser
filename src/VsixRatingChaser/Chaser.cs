@@ -105,6 +105,13 @@ namespace VsixRatingChaser
                 {
                     outcome = ChaseOutcome.InvalidCallAsNonFirstCallButPreviousRatingRequestDateIsNotInPast;
                 }
+                else
+                {
+                    if (ratingRequestCount < 0)
+                    {
+                        outcome = ChaseOutcome.InvalidCallAsRatingRequestCountIsNegative;
+                    }
+                }
             }
 
             return outcome;
