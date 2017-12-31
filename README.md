@@ -46,9 +46,11 @@ I did consider making the text configurable, but in the interests of simplicity,
 
 ## How To Use This Package
 
-1. Add the [nuget package][NugetUrl] package to your vsix solution
+1. Add a reference to assembly [Microsoft.VisualStudio.Shell.15.0](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.15.0) to your vsix project
 
-1. Add a class to your vsix application gregt1 inherits from DialogPage, implements IRatingDetailsDto
+1. Install [this package][NugetUrl] package to your vsix project
+
+1. Add a class to your vsix application gregt1 inherits from DialogPage, implements IRatingDetailsDto - this stores the data as vsix options, invisibly, so you may want to put into your 'options' folder
 
 1. Add a class to your vsix application gregt2 gets the options, calls the Chase() method in Chaser class
 
