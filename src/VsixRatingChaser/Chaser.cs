@@ -89,7 +89,7 @@ namespace VsixRatingChaser
             }
         }
 
-        internal ChaseOutcome ValidateRatingDetailsDto(int ratingRequestCount, DateTime previousRatingRequest)//gregt unit test
+        internal ChaseOutcome ValidateRatingDetailsDto(int ratingRequestCount, DateTime previousRatingRequest)
         {
             var outcome = ChaseOutcome.Unknown;
 
