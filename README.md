@@ -102,6 +102,8 @@ For example:
         }
     }
 
+There are plenty of other example implementations in my various visual studio extension GitHub repos.
+
 ### License
 
 Software License is available [here](/LICENSE.txt).
