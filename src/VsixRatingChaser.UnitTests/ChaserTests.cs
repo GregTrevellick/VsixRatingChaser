@@ -129,5 +129,64 @@ namespace VsixRatingChaser.UnitTests
             return actual;
         }
 
+        [TestMethod]
+        public void IsInaugrualInvocationTest1()
+        {
+            // Arrange
+
+            // Act
+            var actual = Chaser.IsInaugrualInvocation(0, DateTime.MaxValue);
+
+            // Assert
+            Assert.AreEqual(false, actual);
+        }
+
+        [TestMethod]
+        public void IsInaugrualInvocationTest2()
+        {
+            // Arrange
+
+            // Act
+            var actual = Chaser.IsInaugrualInvocation(0, DateTime.MinValue);
+
+            // Assert
+            Assert.AreEqual(true, actual);
+        }
+
+        [TestMethod]
+        public void IsInaugrualInvocationTest3()
+        {
+            // Arrange
+
+            // Act
+            var actual = Chaser.IsInaugrualInvocation(1, DateTime.MaxValue);
+
+            // Assert
+            Assert.AreEqual(false, actual);
+        }
+
+        [TestMethod]
+        public void IsInaugrualInvocationTest4()
+        {
+            // Arrange
+
+            // Act
+            var actual = Chaser.IsInaugrualInvocation(1, DateTime.MinValue);
+
+            // Assert
+            Assert.AreEqual(false, actual);
+        }
+
+        [TestMethod]
+        public void IsInaugrualInvocationTest5()
+        {
+            // Arrange
+
+            // Act
+            var actual = Chaser.IsInaugrualInvocation(-1, DateTime.MinValue);
+
+            // Assert
+            Assert.AreEqual(false, actual);
+        }
     }
 }

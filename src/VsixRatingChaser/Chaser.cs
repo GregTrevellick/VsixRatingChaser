@@ -23,6 +23,7 @@ namespace VsixRatingChaser
             {
                 InaugrualInvocation(ratingDetailsDto);
                 outcome = ValidateRatingDetailsDto(ratingDetailsDto.RatingRequestCount, ratingDetailsDto.PreviousRatingRequest);
+
                 if (outcome == ChaseOutcome.Unknown)
                 {
                     var ratingDecider = new RatingDecider();
@@ -79,14 +80,24 @@ namespace VsixRatingChaser
             return outcome;
         }
 
-        internal static void InaugrualInvocation(IRatingDetailsDto ratingDetailsDto)//gregt unit test
+        private static void InaugrualInvocation(IRatingDetailsDto ratingDetailsDto)
         {
-            if (ratingDetailsDto.RatingRequestCount == 0 &&
-                ratingDetailsDto.PreviousRatingRequest == DateTime.MinValue)
+            if (IsInaugrualInvocation(ratingDetailsDto.RatingRequestCount, ratingDetailsDto.PreviousRatingRequest))
             {
                 ratingDetailsDto.PreviousRatingRequest = DateTime.Now;
                 ratingDetailsDto.SaveSettingsToStorage();
             }
+        }
+
+        internal static bool IsInaugrualInvocation(int ratingRequestCount, DateTime previousRatingRequest)//gregt unit test
+        {
+            if (ratingRequestCount == 0 &&
+                previousRatingRequest == DateTime.MinValue)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         internal ChaseOutcome ValidateRatingDetailsDto(int ratingRequestCount, DateTime previousRatingRequest)
