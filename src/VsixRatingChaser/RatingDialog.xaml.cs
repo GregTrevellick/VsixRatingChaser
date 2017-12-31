@@ -33,19 +33,17 @@ namespace VsixRatingChaser
             }
             else
             {
-                Title += ")";
+                Title += ", you will not be pestered again)";
             }
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             AppTextChaseStatement.Text =
-               $"If you have already rated {_extensionDetailsDto.ExtensionName} please accept my apologies and simply ignore the request below." +
+               $"If you have already rated {_extensionDetailsDto.ExtensionName} please accept my apologies and ignore the request below." +
                 Environment.NewLine + Environment.NewLine +
-                $"I created this {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive absolutely no income from it - I built it simply to help the community. It is not supported by or paid for in anyway by advertising." +
+                $"I created this {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive absolutely no income from it. It is not supported by or paid for in anyway by advertising." +
                 Environment.NewLine + Environment.NewLine +
-                "So please rate this extension on the Visual Studio Marketplace website via the link below - it only takes a few seconds (just click the stars at top of page after clicking the link, there's no need to write an actual review unless you want to). The extension will not stop working or have reduced functionality if you don't rate it, nor will you be bombarded with requests for a rating, but given the cost of this extension it's the least you can do." +
-                Environment.NewLine + Environment.NewLine +
-                "You'll see this pop-up request a maximum of three times, at quarterly intervals." +
+                $"If you find {_extensionDetailsDto.ExtensionName} useful please rate this extension via the link below - it only takes a few seconds (just click the stars at top of page after clicking the link, there's no need to write an actual review). {_extensionDetailsDto.ExtensionName} will not stop working or have reduced functionality if you don't rate it, nor will you be bombarded with requests for a rating. Given the zero cost of {_extensionDetailsDto.ExtensionName} it's the least you can do, and it will be very much appreciated." +
                 Environment.NewLine + Environment.NewLine +
                 $"Thank you, {_extensionDetailsDto.AuthorName}";
 
