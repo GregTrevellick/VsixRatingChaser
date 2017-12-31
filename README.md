@@ -121,7 +121,7 @@ To actually see this package in action with your vsix Do the following:
 1. Restart debugging your vsix - this time no pop-up
 1. Set your system clock back to current date
 
-**Note:** Visual Studio uses your system date to periodically prompt you to re-sign into The IDE. Consequently, having adjused the date above the IDE may ask you to sign in again, which you probably weren't expecting. 
+**Note:** Visual Studio uses your system date to periodically prompt you to re-sign into The IDE. Consequently, having adjusted the date above the IDE may ask you to sign in again, which you probably weren't expecting. 
 
 Jetbrains Resharper uses the system date in the same way, so may tell you your license has expired.
 
