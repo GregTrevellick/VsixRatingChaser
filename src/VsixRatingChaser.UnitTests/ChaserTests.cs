@@ -1,12 +1,66 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VsixRatingChaser.Dtos;
 using VsixRatingChaser.Enums;
+using VsixRatingChaser.Interfaces;
 
 namespace VsixRatingChaser.UnitTests
 {
     [TestClass]
     public class ChaserTests
     {
+        [TestMethod]
+        public void ValidateRatingDetailsDtoTest1()
+        {
+            // Arrange
+            var sut = new Chaser();
+
+            // Act
+            var actual = sut.ValidateRatingDetailsDto(0, DateTime.MaxValue);
+
+            // Assert
+            Assert.AreEqual(ChaseOutcome.Unknown, actual);
+        }
+
+        [TestMethod]
+        public void ValidateRatingDetailsDtoTest2()
+        {
+            // Arrange
+            var sut = new Chaser();
+
+            // Act
+            var actual = sut.ValidateRatingDetailsDto(0, DateTime.MinValue);
+
+            // Assert
+            Assert.AreEqual(ChaseOutcome.Unknown, actual);
+        }
+
+        [TestMethod]
+        public void ValidateRatingDetailsDtoTest3()
+        {
+            // Arrange
+            var sut = new Chaser();
+
+            // Act
+            var actual = sut.ValidateRatingDetailsDto(1, DateTime.MaxValue);
+
+            // Assert
+            Assert.AreEqual(ChaseOutcome.InvalidCallAsNonFirstCallButPreviousRatingRequestDateIsNotInPast, actual);
+        }
+
+        [TestMethod]
+        public void ValidateRatingDetailsDtoTest4()
+        {
+            // Arrange
+            var sut = new Chaser();
+
+            // Act
+            var actual = sut.ValidateRatingDetailsDto(1, DateTime.MinValue);
+
+            // Assert
+            Assert.AreEqual(ChaseOutcome.InvalidCallAsNonFirstCallButNoPreviousRatingRequestDateSpecified, actual);
+        }
+
         [TestMethod]
         public void ValidateTest1()
         {
@@ -61,5 +115,6 @@ namespace VsixRatingChaser.UnitTests
             var actual = sut.Validate(extensionDetailsDto);
             return actual;
         }
+
     }
 }

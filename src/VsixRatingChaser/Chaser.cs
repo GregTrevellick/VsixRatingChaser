@@ -21,38 +21,22 @@ namespace VsixRatingChaser
 
             if (outcome == ChaseOutcome.Unknown)
             {
-
-
-
-                //first time ever
-                if (ratingDetailsDto.RatingRequestCount == 0 &&
-                    ratingDetailsDto.PreviousRatingRequest == DateTime.MinValue)//gregt unit test
+                InaugrualInvocation(ratingDetailsDto);
+                outcome = ValidateRatingDetailsDto(ratingDetailsDto.RatingRequestCount, ratingDetailsDto.PreviousRatingRequest);
+                if (outcome == ChaseOutcome.Unknown)
                 {
-                    ratingDetailsDto.PreviousRatingRequest = DateTime.Now;
-                    ratingDetailsDto.SaveSettingsToStorage();
-                }
+                    var ratingDecider = new RatingDecider();
+                    var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
 
-                //if pop up shown previously then it should have a date
-                if (ratingDetailsDto.RatingRequestCount > 0 &&
-                    ratingDetailsDto.PreviousRatingRequest == DateTime.MinValue) //gregt unit test
-                {
-                    //gregt error
-                }
-
-
-
-
-                var ratingDecider = new RatingDecider();
-                var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
-
-                if (shouldShowDialog)
-                {
-                    ShowDialog(ratingDetailsDto, extensionDetailsDto);
-                    outcome = _ratingHyperLinkClicked ? ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlClicked : ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlNotClicked;
-                }
-                else
-                {
-                    outcome = ChaseOutcome.SuccessfullCallButDialogNotShownToUser;
+                    if (shouldShowDialog)
+                    {
+                        ShowDialog(ratingDetailsDto, extensionDetailsDto);
+                        outcome = _ratingHyperLinkClicked ? ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlClicked : ChaseOutcome.SuccessfullCallAndDialogShownToUserUrlNotClicked;
+                    }
+                    else
+                    {
+                        outcome = ChaseOutcome.SuccessfullCallButDialogNotShownToUser;
+                    }
                 }
             }
 
@@ -95,8 +79,40 @@ namespace VsixRatingChaser
             return outcome;
         }
 
+        internal static void InaugrualInvocation(IRatingDetailsDto ratingDetailsDto)//gregt unit test
+        {
+            if (ratingDetailsDto.RatingRequestCount == 0 &&
+                ratingDetailsDto.PreviousRatingRequest == DateTime.MinValue)
+            {
+                ratingDetailsDto.PreviousRatingRequest = DateTime.Now;
+                ratingDetailsDto.SaveSettingsToStorage();
+            }
+        }
+
+        internal ChaseOutcome ValidateRatingDetailsDto(int ratingRequestCount, DateTime previousRatingRequest)//gregt unit test
+        {
+            var outcome = ChaseOutcome.Unknown;
+
+            if (ratingRequestCount > 0 &&
+                previousRatingRequest == DateTime.MinValue)
+            {
+                outcome = ChaseOutcome.InvalidCallAsNonFirstCallButNoPreviousRatingRequestDateSpecified;
+            }
+            else
+            {
+                if (ratingRequestCount > 0 &&
+                    previousRatingRequest > DateTime.Now)
+                {
+                    outcome = ChaseOutcome.InvalidCallAsNonFirstCallButPreviousRatingRequestDateIsNotInPast;
+                }
+            }
+
+            return outcome;
+        }
+
         private void ShowDialog(IRatingDetailsDto ratingDetailsDto, ExtensionDetailsDto extensionDetailsDto)
         {
+            ratingDetailsDto.RatingRequestCount++;
             var ratingDialog = new RatingDialog(extensionDetailsDto, ratingDetailsDto.RatingRequestCount);
             ratingDialog.Show();
             _ratingHyperLinkClicked = ratingDialog.RatingHyperLinkClicked;
@@ -106,7 +122,6 @@ namespace VsixRatingChaser
         private void PersistRatingDetails(IRatingDetailsDto ratingDetailsDto)
         {
             ratingDetailsDto.PreviousRatingRequest = DateTime.Now;
-            ratingDetailsDto.RatingRequestCount++;
             ratingDetailsDto.SaveSettingsToStorage();
         }
     }

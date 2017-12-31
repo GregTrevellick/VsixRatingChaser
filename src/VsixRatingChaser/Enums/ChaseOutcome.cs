@@ -13,5 +13,7 @@
         InvalidCallAsExtensionNameCannotBeBlank,
         InvalidCallAsMarketplaceUrlIsNotTheVisualStudioMarketplaceDomain,
         InvalidCallAsMarketplaceUrlCannotBeBlank,
+        InvalidCallAsNonFirstCallButNoPreviousRatingRequestDateSpecified,
+        InvalidCallAsNonFirstCallButPreviousRatingRequestDateIsNotInPast,
     }
 }
