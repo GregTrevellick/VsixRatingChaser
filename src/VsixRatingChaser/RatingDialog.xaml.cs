@@ -29,7 +29,7 @@ namespace VsixRatingChaser
 
             if (ratingRequestCount < ChaseSettings.RatingRequestLimit)
             {
-                Title += $", next rating request will occur in {ChaseSettings.RatingRequestGap} months time)";
+                Title += $", next rating request will occur in {ChaseSettings.RatingRequestGapInMonths} months time)";
             }
             else
             {
