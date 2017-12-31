@@ -69,7 +69,6 @@ namespace VsixRatingChaser
                         }
                     }
                 }
-
             }
 
             return outcome;

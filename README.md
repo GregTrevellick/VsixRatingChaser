@@ -46,6 +46,8 @@ I did consider making the text configurable, but in the interests of simplicity,
 
 ## How To Use This Package
 
+1. Ensure your project in .Net 4.7 or above
+
 1. Add a reference to assembly [Microsoft.VisualStudio.Shell.15.0](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.15.0) to your vsix project
 
 1. Install [this package][NugetUrl] package to your vsix project
