@@ -54,7 +54,7 @@ I did consider making the text configurable, but in the interests of simplicity,
 
 1. Add a class to your vsix application gregt1 inherits from DialogPage, implements IRatingDetailsDto - this stores the data as vsix options, invisibly, so you may want to put into your 'options' folder
 
-1. Add a class to your vsix application gregt2 gets the options, calls the Chase() method in Chaser class
+1. Add a class to your vsix application gregt2 gets the options, calls the Chase() method in Chaser class. Recommend calling only when your vsix is invoked, not when citing / initializing your vsix package
 
 That's it. 
 
@@ -103,6 +103,23 @@ For example:
     }
 
 There are plenty of other example implementations in my various visual studio extension GitHub repos.
+
+## Debugging
+
+To actually see this package in action with your vsix Do the following:
+
+1. Advance your system clock 4 months and 1 day
+1. Run your vsix locally in debug mode in the experimental instance
+1. Trigger your vsix to call the package (typically by invoking your vsix functionality)
+1. At this point your experimental instance should display a pop-up asking for a rating - the title should indicate that this is the first request of three
+1. Restart debugging your vsix - this time no pop-up
+1. Advance your system clock an additional 4 months
+1. Restart debugging your vsix - this time pop-up saying 2 of 3
+1. Restart debugging your vsix - this time no pop-up
+1. Advance your system clock an additional 4 months (i.e. a year from now)
+1. Restart debugging your vsix - this time pop-up saying 3 of 3
+1. Restart debugging your vsix - this time no pop-up
+1. Set your system clock back to current date
 
 ### License
 
