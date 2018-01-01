@@ -26,13 +26,17 @@ Available for download at the [nuget gallery][NugetUrl].
 
 Ever noticed how few people ever bother to rate a visual studio extension, even ones that are completely free and fully feature-rich ?
 
-For example the free [Developer Analytics Tools](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.DeveloperAnalyticsTools) extension from Microsoft has over 140m installs but only 7 reviews, a ridiculous 0.000005%.
+For example (*statistics taken 1/1/2018*):
 
-[GitHub Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) from GitHub Inc., also free, fairs slightly better at 57 reviews for 37m installs - still a pathetic 0.0002%.
 
-Eric Woodruff's invaluable yet free [spell checker](https://marketplace.visualstudio.com/items?itemName=EWoodruff.VisualStudioSpellCheckerVS2017andLater) extension racks up 74k installs but a mere 18 reviews (0.02%).
 
-My own [Jeopardy](https://marketplace.visualstudio.com/items?itemName=GregTrevellick.Jeopardy) free extension with it's measly 38 installs incredibly has 2 ratings (a mammoth 5%).
+- The free [Developer Analytics Tools](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.DeveloperAnalyticsTools) extension from Microsoft has over 140m installs but only 7 reviews, a ridiculous 0.000005%.
+
+- [GitHub Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) from GitHub Inc., also free, fairs slightly better at 57 reviews for 37m installs - still a pathetic 0.0002%.
+
+- Eric Woodruff's invaluable yet free [spell checker](https://marketplace.visualstudio.com/items?itemName=EWoodruff.VisualStudioSpellCheckerVS2017andLater) extension racks up 74k installs but a mere 18 reviews (0.02%).
+
+- My own [extensions](https://marketplace.visualstudio.com/search?term=trevellick&target=VS&category=All%20categories&vsVersion=&sortBy=Downloads) (all free) have over 12.5k installs but a measly 2 ratings (0.016%). 
 
 So I decided to build a package that visual studio extension authors could use to **gently** and **unobtrusively** encourage their users to rate their extensions.
 
