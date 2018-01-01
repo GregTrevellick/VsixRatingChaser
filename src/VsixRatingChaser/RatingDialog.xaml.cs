@@ -25,6 +25,7 @@ namespace VsixRatingChaser
             HasMinimizeButton = true;
             ResizeMode = ResizeMode.CanResize;
             SizeToContent = SizeToContent.WidthAndHeight;
+            MaxWidth = 800;
             Title = $"{_extensionDetailsDto.ExtensionName} (rating request {ratingRequestCount} of {ChaseSettings.RatingRequestLimit}";
 
             if (ratingRequestCount < ChaseSettings.RatingRequestLimit)
@@ -39,11 +40,15 @@ namespace VsixRatingChaser
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             AppTextChaseStatement.Text =
-               $"If you have already rated {_extensionDetailsDto.ExtensionName} please accept my apologies and ignore the request below." +
+                $"If you have already rated {_extensionDetailsDto.ExtensionName} please accept my apologies and ignore the request below." +
                 Environment.NewLine + Environment.NewLine +
-                $"I created this {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive absolutely no income from it. It is not supported by or paid for in anyway by advertising." +
+                $"I created {_extensionDetailsDto.ExtensionName} extension entirely unpaid in my personal free time. It is 100% free and I receive absolutely no income from it. It is not supported by or paid for in anyway by advertising." +
                 Environment.NewLine + Environment.NewLine +
-                $"If you find {_extensionDetailsDto.ExtensionName} useful please rate this extension via the link below - it only takes a few seconds (just click the stars at top of page after clicking the link, there's no need to write an actual review). {_extensionDetailsDto.ExtensionName} will not stop working or have reduced functionality if you don't rate it, nor will you be bombarded with requests for a rating. Given the zero cost of {_extensionDetailsDto.ExtensionName} it's the least you can do, and it will be very much appreciated." +
+                $"If you find {_extensionDetailsDto.ExtensionName} useful please rate this extension via the link below - it only takes a few seconds (just click the stars at top of page after clicking the link, there's no need to write an actual review). " +
+                Environment.NewLine + Environment.NewLine +
+                $"{_extensionDetailsDto.ExtensionName} will not stop working or have reduced functionality if you don't rate it, nor will you be bombarded with requests for a rating. " +
+                Environment.NewLine + Environment.NewLine +
+                $"Given the zero cost of {_extensionDetailsDto.ExtensionName} it's the least you can do, and it will be very much appreciated." +
                 Environment.NewLine + Environment.NewLine +
                 $"Thank you, {_extensionDetailsDto.AuthorName}";
 
