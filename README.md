@@ -57,9 +57,11 @@ I did consider making the text, frequency and quantity configurable, but in the 
 1. Install [this package][NugetUrl] package to your vsix project
 
 1. Add a class to your vsix application that inherits from DialogPage and implements IRatingDetailsDto (defined in this package). This class is used for storing data pertinent to this package as part of your extension's options, in a manner that makes the data invisible to users accessing the Tools | Options menu.
+
 *Since this class forms part of the options for your vsix it is recommended thar you locate the class in your vsix's 'options' folder if you have one*
 
-1. Add a class to your vsix project which retrieves the user-hidden options, instantiates the VsixRatingChaser class, calls the class's 'Chase' method, passing appropriate parameter values. 
+1. Add a class to your vsix project which retrieves the user-hidden options, instantiates the VsixRatingChaser class, calls the class's 'Chase' method, passing appropriate parameter values.
+
 *It is recommended that, for moral and performance reasons, VsixRatingChaser is only invoked when your vsix functionality is invoked, not simply when your vsix package is cited / initialized*
 
 That's it. 
