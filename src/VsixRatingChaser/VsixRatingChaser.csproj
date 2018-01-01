@@ -148,6 +148,7 @@
     <None Include="VsixRatingChaser.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="RatingRequestFullScreenshot.png" />
     <Content Include="RatingRequestScreenshot.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

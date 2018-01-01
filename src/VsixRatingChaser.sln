@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\CHANGELOG.md = ..\CHANGELOG.md
 		..\LICENSE.txt = ..\LICENSE.txt
 		..\NugetIcon_64x64.png = ..\NugetIcon_64x64.png
+		..\NugetREADME.md = ..\NugetREADME.md
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject

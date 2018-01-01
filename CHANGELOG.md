@@ -6,13 +6,6 @@ These are the incremental changes to each version that has been released on the 
 
 Individual releases are tagged as such in GitHub.
 
-## 1.0.7
-**2017-12-dd**
+## 1.0.59
+**2018-01-01**
 - [x] Initial release
-
-
-
-
-
-
-gregt - check that nuget pack adds a dependancy upon 'Microsoft.VisualStudio.Shell.15.0' & .Net 4.7 

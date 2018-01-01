@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/GregTrevellick/VsixRatingChaser</projectUrl>
     <iconUrl>https://github.com/GregTrevellick/VsixRatingChaser/raw/master/NugetIcon_64x64.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>Copyright 2017</copyright>
-    <tags>vsix, visual studio extension, visual studio marketplace, marketplace</tags>
+    <description>Gentle encouragement to rate Visual Studio extensions</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>vsix, visual studio extension, visual studio marketplace, marketplace, rating chaser</tags>
   </metadata>
 </package>
