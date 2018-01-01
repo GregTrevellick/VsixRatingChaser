@@ -24,15 +24,13 @@ Available for download at the [nuget gallery][NugetUrl].
 
 Ever noticed how few people ever bother to rate a visual studio extension, even ones that are completely free and fully feature-rich ?
 
-For example, [Developer Analytics Tools](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.DeveloperAnalyticsTools) from Microsoft has over 140m installs but only 7 reviews.
+For example the free [Developer Analytics Tools](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.DeveloperAnalyticsTools) extension from Microsoft has over 140m installs but only 7 reviews, a ridiculous 0.000005%.
 
-[GitHub Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) from GitHub Inc. fairs slightly better at 57 reviews for 37m installs.
+[GitHub Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) from GitHub Inc., also free, fairs slightly better at 57 reviews for 37m installs - still a pathetic 0.0002%.
 
-https://marketplace.visualstudio.com/items?itemName=EWoodruff.VisualStudioSpellCheckerVS2017andLater
-74k installs 18 reviews
+Eric Woodruff's invaluable yet free [spell checker](https://marketplace.visualstudio.com/items?itemName=EWoodruff.VisualStudioSpellCheckerVS2017andLater) extension racks up 74k installs but a mere 18 reviews (0.02%).
 
-https://marketplace.visualstudio.com/items?itemName=GregTrevellick.Jeopardy
-38 installs 2 ratings
+My own [Jeopardy](https://marketplace.visualstudio.com/items?itemName=GregTrevellick.Jeopardy) free extension with it's measly 38 installs incredibly has 2 ratings (a mammoth 5%).
 
 So I decided to build a package that visual studio extension authors could use to **gently** and **unobtrusively** encourage their users to rate their extensions.
 
