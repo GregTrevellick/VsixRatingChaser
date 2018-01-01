@@ -20,6 +20,8 @@ A package to gently encourage ratings / reviews for [Visual Studio][VisualStudio
 
 Available for download at the [nuget gallery][NugetUrl].
 
+![Rating Request](https://github.com/GregTrevellick/VsixRatingChaser/raw/master/src/VsixRatingChaser/RatingRequestFullScreenshot.png)
+
 ## Introduction
 
 Ever noticed how few people ever bother to rate a visual studio extension, even ones that are completely free and fully feature-rich ?
@@ -34,6 +36,8 @@ My own [Jeopardy](https://marketplace.visualstudio.com/items?itemName=GregTrevel
 
 So I decided to build a package that visual studio extension authors could use to **gently** and **unobtrusively** encourage their users to rate their extensions.
 
+![Rating Request](https://github.com/GregTrevellick/VsixRatingChaser/raw/master/src/VsixRatingChaser/RatingRequestScreenshot.png)
+
 ## How It Works
 
 Your visual studio extension will call into this package, and it will **three times** at **quarterly intervals**, present the user with a pop-up window asking for a rating.
@@ -45,8 +49,6 @@ It does not (and could not) disable any functionality of your vsix if a rating /
 The pop-up request explains how your extension was lovingly created for free by you, and how you don't get paid for it. 
 
 I did consider making the text, frequency and quantity configurable, but in the interests of simplicity, and because this package is not aimed at money-making corporations (who, let's face it, can easily create their own equivalent package if they want to) I opted not to, leaving the wording hard-coded for the little guy, as per the screen shot below.
-
-![Rating Request](https://github.com/GregTrevellick/VsixRatingChaser/raw/master/src/VsixRatingChaser/RatingRequestScreenshot.png)
 
 ## How To Use This Package
 
