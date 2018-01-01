@@ -3,7 +3,8 @@
 [GitHubRepoURL]: https://github.com/GregTrevellick/VsixRatingChaser
 [GitHubRepoIssuesURL]: https://github.com/GregTrevellick/VsixRatingChaser/issues
 [GitHubRepoPullRequestsURL]: https://github.com/GregTrevellick/VsixRatingChaser/pulls
-[NugetUrl]: https://www.nuget.org/packages/OpenInApp.Common/
+[NugetUrl]: https://www.nuget.org/packages/VsixRatingChaser/
+
 [VisualStudioURL]: https://www.visualstudio.com/
 [CharityWareURL]: https://github.com/GregTrevellick/MiscellaneousArtefacts/wiki/Charity-Ware
 [WhyURL]: https://github.com/GregTrevellick/MiscellaneousArtefacts/wiki/Why
