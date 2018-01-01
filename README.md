@@ -22,48 +22,55 @@ Available for download at the [nuget gallery][NugetUrl].
 
 ## Introduction
 
-Ever noticed how few people ever bother to rate a visual studio extension, even ones that are completely free and are feature-rich ?
+Ever noticed how few people ever bother to rate a visual studio extension, even ones that are completely free and fully feature-rich ?
 
-For example, [Developer Analytics Tools](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.DeveloperAnalyticsTools) has over 140m installs but only 7 reviews.
+For example, [Developer Analytics Tools](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.DeveloperAnalyticsTools) from Microsoft has over 140m installs but only 7 reviews.
 
-[GitHub Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) fairs slightly better at 57 reviews for 37m installs.
+[GitHub Extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) from GitHub Inc. fairs slightly better at 57 reviews for 37m installs.
+
+https://marketplace.visualstudio.com/items?itemName=EWoodruff.VisualStudioSpellCheckerVS2017andLater
+74k installs 18 reviews
+
+https://marketplace.visualstudio.com/items?itemName=GregTrevellick.Jeopardy
+38 installs 2 ratings
 
 So I decided to build a package that visual studio extension authors could use to **gently** and **unobtrusively** encourage their users to rate their extensions.
 
 ## How It Works
 
-Your visual studio extension will call into this package, and it will, at **three month intervals**, for **a maximum of three times**, present the user with a pop-up window asking for a rating.
+Your visual studio extension will call into this package, and it will **three times** at **quarterly intervals**, present the user with a pop-up window asking for a rating.
 
 It is deliberately low-key, and does not actually track if a rating or review has been made.
 
-It does not disable any functionality of your vsix if a rating / review hasn't been made (how could it?).
+It does not (and could not) disable any functionality of your vsix if a rating / review hasn't been made.
 
 The pop-up request explains how your extension was lovingly created for free by you, and how you don't get paid for it. 
 
-I did consider making the text configurable, but in the interests of simplicity, and because this package is not aimed at money-making corporations (who, let's face it, can easily create their own equivalent package if they want to) I left the text hard-coded as per the screen shot below.
+I did consider making the text, frequency and quantity configurable, but in the interests of simplicity, and because this package is not aimed at money-making corporations (who, let's face it, can easily create their own equivalent package if they want to) I opted not to, leaving the wording hard-coded for the little guy, as per the screen shot below.
 
 ![Rating Request](\src\VsixRatingChaser\RatingRequestScreenshot.png)
 
 ## How To Use This Package
 
-1. Ensure your project in .Net 4.7 or above
+1. Ensure your vsix project is .Net 4.7 or above
 
 1. Add a reference to assembly [Microsoft.VisualStudio.Shell.15.0](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.15.0) to your vsix project
 
 1. Install [this package][NugetUrl] package to your vsix project
 
-1. Add a class to your vsix application gregt1 inherits from DialogPage, implements IRatingDetailsDto - this stores the data as vsix options, invisibly, so you may want to put into your 'options' folder
+1. Add a class to your vsix application that inherits from DialogPage and implements IRatingDetailsDto (defined in this package). This class is used for storing data pertinent to this package as part of your extension's options, in a manner that makes the data invisible to users accessing the Tools | Options menu. *Since this class forms part of the options for your vsix it is recommended thar you locate the class in your vsix's 'options' folder if you have one*
 
-1. Add a class to your vsix application gregt2 gets the options, calls the Chase() method in Chaser class. Recommend calling only when your vsix is invoked, not when citing / initializing your vsix package
+1. Add a class to your vsix project which retrieves the user-hidden options, instantiates the VsixRatingChaser class, calls the class's 'Chase' method, passing appropriate parameter values. *It is recommended that, for moral and performance reasons, VsixRatingChaser is only invoked when your vsix functionality is invoked, not simply when your vsix paca
+kage in cited / initialized*
 
 That's it. 
 
 The package takes care of persisting the date that the next pop-up is due, and monitors how many pop-ups the user has already been presented with, so that they don't get prompted to rate / review indefinitely.
 
-The response from the call can be interrogated, but essentially explains:
+The response from the call can optionally be interrogated, but essentially explains:
  - If the pop-up was not displayed or not 
- - If the pop-up was displayed then also indicates if the user clicked the link
- - The reason the pop-up could not be displayed if any data was invalid (e.g. the caller did not supply a name for the vsix)
+ - If the pop-up was displayed then also indicates if the user clicked the rating Url hyperlink
+ - The reason the pop-up could not be displayed if any data was invalid (e.g. the caller did not supply a name for the extension)
 
 For example:
 
@@ -102,28 +109,30 @@ For example:
         }
     }
 
-There are plenty of other example implementations in my various visual studio extension GitHub repos.
+There are plenty of other example implementations in my various Visual Studio extension [GitHub repos](https://github.com/GregTrevellick).
 
 ## Debugging
 
-To actually see this package in action with your vsix Do the following:
+To actually see this package in action with your vsix do the following:
 
-1. Advance your system clock 4 months and 1 day
+1. Advance your system clock four months and one day
 1. Run your vsix locally in debug mode in the experimental instance
-1. Trigger your vsix to call the package (typically by invoking your vsix functionality)
-1. At this point your experimental instance should display a pop-up asking for a rating - the title should indicate that this is the first request of three
-1. Restart debugging your vsix - this time no pop-up
-1. Advance your system clock an additional 4 months
-1. Restart debugging your vsix - this time pop-up saying 2 of 3
-1. Restart debugging your vsix - this time no pop-up
-1. Advance your system clock an additional 4 months (i.e. a year from now)
-1. Restart debugging your vsix - this time pop-up saying 3 of 3
-1. Restart debugging your vsix - this time no pop-up
-1. Set your system clock back to current date
+1. Trigger your vsix to call this package (i.e. invoking your vsix functionality within the experimental instance)
+1. At this point your experimental instance should display a pop-up asking for a rating - the title should indicate that this is the first of three requests
+1. Restart debugging your vsix - this time there is no rating request pop-up
+1. Advance your system clock an additional four months
+1. Restart debugging your vsix - this time a rating request pop-up appears (second of three)
+1. Restart debugging your vsix - this time there is no rating request pop-up
+1. Advance your system clock an additional four months (i.e. a year altogether)
+1. Restart debugging your vsix - this time a rating request pop-up appears, indicating it is the third of three
+1. Restart debugging your vsix - this time (and beyond) there is no rating request pop-up
+1. Set your system clock back to the current date
 
-**Note:** Visual Studio uses your system date to periodically prompt you to re-sign into The IDE. Consequently, having adjusted the date above the IDE may ask you to sign in again, which you probably weren't expecting. 
+## Debug Gotchas
 
-Jetbrains Resharper uses the system date in the same way, so may tell you your license has expired.
+ - Visual Studio uses your system date to periodically prompt you to re-sign into the IDE. Consequently, having adjusted the date above the IDE may ask you to sign in again, which you probably weren't expecting. 
+
+ - Jetbrains Resharper also uses the system date in the same way, so may tell you your license has expired.
 
 ### License
 
