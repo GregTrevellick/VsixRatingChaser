@@ -113,16 +113,27 @@ There are plenty of other example implementations in my various Visual Studio ex
 To actually see this package in action with your vsix do the following:
 
 1. Advance your system clock four months and one day
+
 1. Run your vsix locally in debug mode in the experimental instance
+
 1. Trigger your vsix to call this package (i.e. invoking your vsix functionality within the experimental instance)
+
 1. At this point your experimental instance should display a pop-up asking for a rating - the title should indicate that this is the first of three requests
+
 1. Restart debugging your vsix - this time there is no rating request pop-up
+
 1. Advance your system clock an additional four months
+
 1. Restart debugging your vsix - this time a rating request pop-up appears (second of three)
+
 1. Restart debugging your vsix - this time there is no rating request pop-up
+
 1. Advance your system clock an additional four months (i.e. a year altogether)
+
 1. Restart debugging your vsix - this time a rating request pop-up appears, indicating it is the third of three
+
 1. Restart debugging your vsix - this time (and beyond) there is no rating request pop-up
+
 1. Set your system clock back to the current date
 
 ## Debug Gotchas
