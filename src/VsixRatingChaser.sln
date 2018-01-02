@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\LICENSE.txt = ..\LICENSE.txt
 		..\NugetIcon_64x64.png = ..\NugetIcon_64x64.png
 		..\NugetREADME.md = ..\NugetREADME.md
+		RatingRequestFullScreenshot.png = RatingRequestFullScreenshot.png
+		RatingRequestScreenshot.png = RatingRequestScreenshot.png
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
