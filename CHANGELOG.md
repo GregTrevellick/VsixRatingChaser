@@ -9,3 +9,7 @@ Individual releases are tagged as such in GitHub.
 ## 1.0.59
 **2018-01-01**
 - [x] Initial release
+
+## 1.0.62
+**2018-01-02**
+- [x] Omit screen shot from installations

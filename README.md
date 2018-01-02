@@ -21,7 +21,7 @@ A package to gently encourage ratings / reviews for [Visual Studio][VisualStudio
 
 Available for download at the [nuget gallery][NugetUrl].
 
-![Rating Request](https://github.com/GregTrevellick/VsixRatingChaser/raw/master/src/VsixRatingChaser/RatingRequestFullScreenshot.png)
+![Rating Request](https://github.com/GregTrevellick/VsixRatingChaser/raw/master/src/RatingRequestFullScreenshot.png)
 
 ## Introduction
 
@@ -41,7 +41,7 @@ For example (*statistics taken 1/1/2018*):
 
 So I decided to build a package that visual studio extension authors could use to **gently** and **unobtrusively** encourage their users to rate their extensions.
 
-![Rating Request](https://github.com/GregTrevellick/VsixRatingChaser/raw/master/src/VsixRatingChaser/RatingRequestScreenshot.png)
+![Rating Request](https://github.com/GregTrevellick/VsixRatingChaser/raw/master/src/RatingRequestScreenshot.png)
 
 ## How It Works
 
