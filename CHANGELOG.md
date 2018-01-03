@@ -13,3 +13,7 @@ Individual releases are tagged as such in GitHub.
 ## 1.0.62
 **2018-01-02**
 - [x] Omit screen shot from installations
+
+## 1.0.63
+**2018-01-03**
+- [x] Icon added

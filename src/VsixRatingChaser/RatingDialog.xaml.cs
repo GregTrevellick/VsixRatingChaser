@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using VsixRatingChaser.Dtos;
 
@@ -27,6 +28,8 @@ namespace VsixRatingChaser
             SizeToContent = SizeToContent.WidthAndHeight;
             MaxWidth = 800;
             Title = $"{_extensionDetailsDto.ExtensionName} (rating request {ratingRequestCount} of {ChaseSettings.RatingRequestLimit}";
+
+            //SetWindowIcon();
 
             if (ratingRequestCount < ChaseSettings.RatingRequestLimit)
             {
@@ -66,5 +69,19 @@ namespace VsixRatingChaser
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+
+        //private void SetWindowIcon()
+        //{
+        //    var iconUri = GetIconUri();
+        //    Icon = new BitmapImage(iconUri);
+        //}
+
+        //private Uri GetIconUri()
+        //{
+        //    var assemblyName = "VsixRatingChaser";
+        //    var packUri = $"pack://application:,,,/{assemblyName};component/Resources/nugeticon_96x96_ggf_icon.ico";
+        //    return new Uri(packUri, UriKind.RelativeOrAbsolute);
+        //}
+
     }
 }
