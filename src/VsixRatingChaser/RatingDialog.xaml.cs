@@ -29,8 +29,6 @@ namespace VsixRatingChaser
             MaxWidth = 800;
             Title = $"{_extensionDetailsDto.ExtensionName} (rating request {ratingRequestCount} of {ChaseSettings.RatingRequestLimit}";
 
-            //SetWindowIcon();
-
             if (ratingRequestCount < ChaseSettings.RatingRequestLimit)
             {
                 Title += $", next rating request will occur in {ChaseSettings.RatingRequestGapInMonths} months time)";
@@ -70,18 +68,22 @@ namespace VsixRatingChaser
             e.Handled = true;
         }
 
-        //private void SetWindowIcon()
-        //{
-        //    var iconUri = GetIconUri();
-        //    Icon = new BitmapImage(iconUri);
-        //}
-
-        //private Uri GetIconUri()
-        //{
-        //    var assemblyName = "VsixRatingChaser";
-        //    var packUri = $"pack://application:,,,/{assemblyName};component/Resources/nugeticon_96x96_ggf_icon.ico";
-        //    return new Uri(packUri, UriKind.RelativeOrAbsolute);
-        //}
-
     }
 }
+
+
+
+
+//////private void SetWindowIcon()
+//////{
+//////    var iconUri = GetIconUri();
+//////    Icon = new BitmapImage(iconUri);
+//////}
+
+//////private Uri GetIconUri()
+//////{
+//////    var assemblyName = "VsixRatingChaser";
+//////    var packUri = $"pack://application:,,,/{assemblyName};component/Resources/nugeticon_96x96_ggf_icon.ico";
+//////    return new Uri(packUri, UriKind.RelativeOrAbsolute);
+//////}
+
