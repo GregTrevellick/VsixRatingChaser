@@ -18,8 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsixRatingChaser.UnitTests", "VsixRatingChaser.UnitTests\VsixRatingChaser.UnitTests.csproj", "{69CA3860-670D-420C-A282-083E324A7422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugConsole", "DebugConsole\DebugConsole.csproj", "{FB62D3C4-A8B6-42B3-BED9-6BD6AEEFAB84}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,10 +32,6 @@ Global
 		{69CA3860-670D-420C-A282-083E324A7422}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69CA3860-670D-420C-A282-083E324A7422}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69CA3860-670D-420C-A282-083E324A7422}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB62D3C4-A8B6-42B3-BED9-6BD6AEEFAB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB62D3C4-A8B6-42B3-BED9-6BD6AEEFAB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB62D3C4-A8B6-42B3-BED9-6BD6AEEFAB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB62D3C4-A8B6-42B3-BED9-6BD6AEEFAB84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
