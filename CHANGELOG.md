@@ -18,6 +18,6 @@ Individual releases are tagged as such in GitHub.
 **2018-01-03**
 - [x] Icon added
 
-## 1.0.64
+## 1.0.70
 **2018-03-02**
 - [x] Removed dependency in Microsoft.VisualStudio.Shell.Immutable.14.0

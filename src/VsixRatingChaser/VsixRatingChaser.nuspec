@@ -11,7 +11,7 @@
     <iconUrl>https://github.com/GregTrevellick/VsixRatingChaser/raw/master/NugetIcon_64x64.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Gentle encouragement to rate Visual Studio extensions</description>
-    <releaseNotes>Omit screen shot from installations</releaseNotes>
+    <releaseNotes>Remove a dependency</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>vsix, visual studio extension, visual studio marketplace, marketplace, rating chaser</tags>
   </metadata>
