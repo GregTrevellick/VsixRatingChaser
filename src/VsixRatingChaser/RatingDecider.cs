@@ -38,8 +38,7 @@ namespace VsixRatingChaser
 
         internal bool ExceededRatingRequestGap(DateTime previousRatingRequest, int ratingRequestGapInMonths, DateTime now)
         {
-            //var acceptableDate = now.AddMonths(-1 * ratingRequestGapInMonths);
-            var acceptableDate = now.AddSeconds(-1 * ratingRequestGapInMonths);//gregt
+            var acceptableDate = now.AddMonths(-1 * ratingRequestGapInMonths);
 
             return previousRatingRequest < acceptableDate;
         }
