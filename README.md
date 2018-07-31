@@ -11,6 +11,9 @@
 
 # Vsix Rating Chaser 
 
+<!--BadgesSTART-->
+<!--BadgesEND-->
+
 [![Licence](https://img.shields.io/aur/license/yaourt.svg)](/LICENSE.txt)
 [![Build status][AppVeyorProjectBuildStatusBadgeSvg]][AppVeyorProjectUrl]
 [![CharityWare](https://img.shields.io/badge/Charity%20Ware-Thank%20You-brightgreen.svg)][CharityWareURL]
