@@ -27,10 +27,6 @@
 [![License](https://img.shields.io/github/license/gittools/gitlink.svg)](/LICENSE.txt)
 [![Nuget downloads](https://img.shields.io/nuget/dt/VsixRatingChaser.svg)](https://www.nuget.org/packages/VsixRatingChaser/)<!--BadgesEND-->
 
-[![Licence](https://img.shields.io/aur/license/yaourt.svg)](/LICENSE.txt)
-[![Build status][AppVeyorProjectBuildStatusBadgeSvg]][AppVeyorProjectUrl]
-[![CharityWare](https://img.shields.io/badge/Charity%20Ware-Thank%20You-brightgreen.svg)][CharityWareURL]
-
 ![Vsix Rating Chaser](NugetIcon_64x64.png "Vsix Rating Chaser Logo")
 
 A package to gently encourage ratings / reviews for [Visual Studio][VisualStudioURL] extensions.
