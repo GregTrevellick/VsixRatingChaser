@@ -29,6 +29,8 @@
 <!--BadgesEND-->
 
 
+
+
 ![Vsix Rating Chaser](NugetIcon_64x64.png "Vsix Rating Chaser Logo")
 
 A package to gently encourage ratings / reviews for [Visual Studio][VisualStudioURL] extensions.
