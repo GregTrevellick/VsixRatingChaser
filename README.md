@@ -12,6 +12,7 @@
 # Vsix Rating Chaser 
 
 <!--BadgesSTART-->
+[![Read Me Synchronizer](https://img.shields.io/badge/-powered%20by%20read%20me%20synchronizer-brightgreen.svg)](https://github.com/GregTrevellick/ReadMeSynchronizer)
 <!-- Powered by https://github.com/GregTrevellick/ReadMeSynchronizer -->
 
 [![BetterCodeHub compliance](https://bettercodehub.com/edge/badge/GregTrevellick/VsixRatingChaser?branch=master)](https://bettercodehub.com/results/GregTrevellick/VsixRatingChaser)
@@ -20,10 +21,22 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser)
 [![Github language count](https://img.shields.io/github/languages/count/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser/pulls)
+[![Sonar&metric=alert_status](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=alert_status)](https://sonarcloud.io/dashboard?id=VsixRatingChaser)
+[![Sonar&metric=bugs](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=bugs)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=bugs)
+[![Sonar&metric=code_smells](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=code_smells)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=code_smells)
+[![Sonar&metric=coverage](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=coverage)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=Coverage)
+[![Sonar&metric=duplicated_lines_density](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=duplicated_lines_density)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=duplicated_lines)
+[![Sonar&metric=ncloc](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=ncloc)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=ncloc)
+[![Sonar&metric=reliability_rating](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=reliability_rating)
+[![Sonar&metric=security_rating](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=security_rating)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=security_rating)
+[![Sonar&metric=sqale_index](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=sqale_index)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=sqale_index)
+[![Sonar&metric=sqale_rating](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=sqale_rating)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=sqale_rating)
+[![Sonar&metric=vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=vulnerabilities)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=vulnerabilities)
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/x7qcrnycboq55xgf?svg=true)](https://ci.appveyor.com/project/GregTrevellick/VsixRatingChaser)
 [![Appveyor unit tests](https://img.shields.io/appveyor/tests/GregTrevellick/VsixRatingChaser.svg)](https://ci.appveyor.com/project/GregTrevellick/VsixRatingChaser/build/tests)
-[![Access Lint github](https://img.shields.io/badge/a11y-checked-green.svg)](https://www.accesslint.com)
-[![ImgBot](https://img.shields.io/badge/images-optimized-green.svg)](https://imgbot.net/)
+[![Access Lint github](https://img.shields.io/badge/a11y-checked-brightgreen.svg)](https://www.accesslint.com)
+[![ImgBot](https://img.shields.io/badge/images-optimized-brightgreen.svg)](https://imgbot.net/)
+[![Renovate Bot github](https://img.shields.io/badge/renovatebot-checked-brightgreen.svg)](https://renovatebot.com/)
 [![Charity Ware](https://img.shields.io/badge/charity%20ware-thank%20you-brightgreen.svg)](https://github.com/GregTrevellick/MiscellaneousArtefacts/wiki/Charity-Ware)
 [![License](https://img.shields.io/github/license/gittools/gitlink.svg)](/LICENSE.txt)
 [![Nuget downloads](https://img.shields.io/nuget/dt/VsixRatingChaser.svg)](https://www.nuget.org/packages/VsixRatingChaser/)
