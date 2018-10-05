@@ -20,6 +20,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/GregTrevellick/VsixRatingChaser/badge)](https://www.codefactor.io/repository/github/GregTrevellick/VsixRatingChaser)
 [![GitHub top language](https://img.shields.io/github/languages/top/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser)
 [![Github language count](https://img.shields.io/github/languages/count/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser)
+[![GitHub issues](https://img.shields.io/github/issues-raw/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser/pulls)
 [![Sonar&metric=alert_status](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=alert_status)](https://sonarcloud.io/dashboard?id=VsixRatingChaser)
 [![Sonar&metric=bugs](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=bugs)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=bugs)
