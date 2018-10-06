@@ -35,6 +35,7 @@
 [![Sonar&metric=vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=VsixRatingChaser&metric=vulnerabilities)](https://sonarcloud.io/component_measures?id=VsixRatingChaser&metric=vulnerabilities)
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/x7qcrnycboq55xgf?svg=true)](https://ci.appveyor.com/project/GregTrevellick/VsixRatingChaser)
 [![Appveyor unit tests](https://img.shields.io/appveyor/tests/GregTrevellick/VsixRatingChaser.svg)](https://ci.appveyor.com/project/GregTrevellick/VsixRatingChaser/build/tests)
+[![Azure Build Status](https://gregtrevellick.visualstudio.com/VsixRatingChaser/_apis/build/status/VsixRatingChaser)](https://gregtrevellick.visualstudio.com/VsixRatingChaser/_build/latest?definitionId=)
 [![Access Lint github](https://img.shields.io/badge/a11y-checked-brightgreen.svg)](https://www.accesslint.com)
 [![ImgBot](https://img.shields.io/badge/images-optimized-brightgreen.svg)](https://imgbot.net/)
 [![Renovate Bot github](https://img.shields.io/badge/renovatebot-checked-brightgreen.svg)](https://renovatebot.com/)
