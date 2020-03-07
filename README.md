@@ -18,7 +18,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/688c1d5a2ec547faa61230471639cb8f)](https://www.codacy.com/project/gtrevellick/VsixRatingChaser/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GregTrevellick/VsixRatingChaser&amp;utm_campaign=Badge_Grade_Dashboard)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/GregTrevellick/VsixRatingChaser/badge)](https://www.codefactor.io/repository/github/GregTrevellick/VsixRatingChaser)
-[![InspecodeRocro Report](https://inspecode.rocro.com/badges/github.com/GregTrevellick/VsixRatingChaser/report?token=3MoJYEkjyMd9s5AsBr8dXRMCCs_psV5z0119oqn0NwM)](https://inspecode.rocro.com/reports/github.com/GregTrevellick/VsixRatingChaser/branch/master/summary)
 
 
 [![GitHub top language](https://img.shields.io/github/languages/top/GregTrevellick/VsixRatingChaser.svg)](https://github.com/GregTrevellick/VsixRatingChaser)
@@ -39,7 +38,6 @@
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/x7qcrnycboq55xgf?svg=true)](https://ci.appveyor.com/project/GregTrevellick/VsixRatingChaser)
 [![Appveyor unit tests](https://img.shields.io/appveyor/tests/GregTrevellick/VsixRatingChaser.svg)](https://ci.appveyor.com/project/GregTrevellick/VsixRatingChaser/build/tests)
 [![Azure Build Status](https://gregtrevellick.visualstudio.com/VsixRatingChaser/_apis/build/status/VsixRatingChaser)](https://gregtrevellick.visualstudio.com/VsixRatingChaser/_build/latest?definitionId=30)
-[![InspecodeRocro Job Status](https://inspecode.rocro.com/badges/github.com/GregTrevellick/VsixRatingChaser/status?token=3MoJYEkjyMd9s5AsBr8dXRMCCs_psV5z0119oqn0NwM)](https://inspecode.rocro.com/jobs/github.com/GregTrevellick/VsixRatingChaser/latest?completed=true)
 [![Hound](https://img.shields.io/badge/hound_ci-checked-brightgreen.svg)](https://houndci.com/)
 [![Access Lint github](https://img.shields.io/badge/a11y-checked-brightgreen.svg)](https://www.accesslint.com)
 [![ImgBot](https://img.shields.io/badge/images-optimized-brightgreen.svg)](https://imgbot.net/)
