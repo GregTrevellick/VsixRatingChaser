@@ -82,7 +82,7 @@ namespace VsixRatingChaser.UnitTests
             var sut = new RatingDecider();
             var ratingRequestGap = 3;
             var lastRatingRequest = new DateTime(2017, 6, 1, 0, 0, 0);
-            var now = new DateTime(2017, 9, 2, 0, 0, 0);
+            var now = new DateTime(2017, 10, 2, 0, 0, 0);
             var expected = true;
 
             // Act

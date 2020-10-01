@@ -31,15 +31,16 @@ namespace VsixRatingChaser
             return shouldShowDialog;
         }
 
-        internal bool ExceededRatingRequestLimit(int ratingRequestCount, int ratingRequestLimit)
+        internal bool ExceededRatingRequestLimit(int ratingRequestCount, int ratingRequestLimit)//gregt unit test
         {
-            return ratingRequestCount > ratingRequestLimit;
+            return ratingRequestCount >= ratingRequestLimit;
         }
 
         internal bool ExceededRatingRequestGap(DateTime previousRatingRequest, int ratingRequestGapInMonths, DateTime now)
         {
-            //var acceptableDate = now.AddMonths(-1 * ratingRequestGapInMonths);
-            var acceptableDate = now.AddSeconds(-1 * ratingRequestGapInMonths);//gregt change AddSeconds to AddMonths
+            var acceptableDate = now.AddMonths(-1 * ratingRequestGapInMonths);
+            //var acceptableDate = now.AddSeconds(-1 * ratingRequestGapInMonths);//gregt change AddSeconds to AddMonths
+
             return previousRatingRequest < acceptableDate;
         }
     }

@@ -21,6 +21,27 @@ namespace VsixRatingChaser
 
             if (outcome == ChaseOutcome.Unknown)
             {
+
+
+
+                //first time ever
+                if (ratingDetailsDto.RatingRequestCount == 0 &&
+                    ratingDetailsDto.PreviousRatingRequest == DateTime.MinValue)//gregt unit test
+                {
+                    ratingDetailsDto.PreviousRatingRequest = DateTime.Now;
+                    ratingDetailsDto.SaveSettingsToStorage();
+                }
+
+                //if pop up shown previously then it should have a date
+                if (ratingDetailsDto.RatingRequestCount > 0 &&
+                    ratingDetailsDto.PreviousRatingRequest == DateTime.MinValue) //gregt unit test
+                {
+                    //gregt error
+                }
+
+
+
+
                 var ratingDecider = new RatingDecider();
                 var shouldShowDialog = ratingDecider.ShouldShowDialog(ratingDetailsDto);
 
